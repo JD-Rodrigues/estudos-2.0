@@ -1,0 +1,12 @@
+@import variables
+@import mixins
+
+body 
+  background-color: $bg-color
+  padding: $bg-padding
+
+.btn
+  @include btn($btn-color, #FFF)
+
+.btn-2
+  @include btn($btn-color-2, #000)

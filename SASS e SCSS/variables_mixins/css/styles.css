@@ -1,0 +1,18 @@
+body {
+  background-color: #c6538c;
+  padding: 20px;
+}
+
+.btn {
+  padding: 5px;
+  background-color: #4958dd;
+  color: #FFF;
+}
+
+.btn-2 {
+  padding: 5px;
+  background-color: #49dd98;
+  color: #000;
+}
+
+/*# sourceMappingURL=styles.css.map */
