@@ -1,0 +1,490 @@
+{
+  "slices": {
+    "components": {
+      "features": {
+        "library": "slices",
+        "id": "features",
+        "name": "Features",
+        "description": "Features",
+        "model": {
+          "id": "features",
+          "type": "SharedSlice",
+          "name": "Features",
+          "description": "Features",
+          "variations": [
+            {
+              "id": "default",
+              "name": "Default",
+              "docURL": "...",
+              "version": "sktwi1xtmkfgx8626",
+              "description": "Features",
+              "primary": {
+                "tagline": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "Tagline",
+                    "placeholder": "Optional - Text above the main text",
+                    "allowTargetBlank": true,
+                    "single": "paragraph"
+                  }
+                },
+                "text": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "Text",
+                    "placeholder": "Main text to display",
+                    "allowTargetBlank": true,
+                    "multi": "paragraph,heading1,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                  }
+                },
+                "alignment": {
+                  "type": "Select",
+                  "config": {
+                    "label": "Alignment",
+                    "placeholder": "Determines how to display features",
+                    "options": [
+                      "Left",
+                      "Center"
+                    ],
+                    "default_value": "Left"
+                  }
+                }
+              },
+              "items": {
+                "image": {
+                  "type": "Image",
+                  "config": {
+                    "label": "Image",
+                    "constraint": {},
+                    "thumbnails": []
+                  }
+                },
+                "description": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "Description",
+                    "placeholder": "Text describing the feature",
+                    "allowTargetBlank": true,
+                    "multi": "paragraph,preformatted,heading3,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                  }
+                },
+                "buttonLink": {
+                  "type": "Link",
+                  "config": {
+                    "label": "Button Link",
+                    "placeholder": "Optional - Link for the button",
+                    "select": null
+                  }
+                },
+                "buttonText": {
+                  "type": "Text",
+                  "config": {
+                    "label": "Button Text",
+                    "placeholder": "Optional - Text for the button"
+                  }
+                }
+              },
+              "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+            }
+          ]
+        },
+        "mocks": {
+          "default": {
+            "variation": "default",
+            "name": "Default",
+            "slice_type": "features",
+            "items": [
+              {
+                "image": {
+                  "dimensions": {
+                    "width": 900,
+                    "height": 500
+                  },
+                  "alt": "Placeholder image",
+                  "copyright": null,
+                  "url": "https://images.unsplash.com/photo-1587614295999-6c1c13675117?w=900&h=500&fit=crop"
+                },
+                "description": [
+                  {
+                    "type": "paragraph",
+                    "text": "Nulla nostrud aute cillum irure ut ipsum esse adipisicing fugiat ad aliquip. Dolore et magna eu officia dolore ullamco quis dolor laboris proident eu nisi reprehenderit.",
+                    "spans": []
+                  }
+                ],
+                "buttonLink": {
+                  "link_type": "Web",
+                  "url": "http://google.com"
+                },
+                "buttonText": "extend global models"
+              },
+              {
+                "image": {
+                  "dimensions": {
+                    "width": 900,
+                    "height": 500
+                  },
+                  "alt": "Placeholder image",
+                  "copyright": null,
+                  "url": "https://images.unsplash.com/photo-1607582278043-57198ac8da43?w=900&h=500&fit=crop"
+                },
+                "description": [
+                  {
+                    "type": "paragraph",
+                    "text": "Laboris ullamco irure esse adipisicing minim enim dolor ad esse laborum mollit adipisicing consectetur. Officia Lorem sit occaecat dolor irure ipsum sint consectetur officia mollit cupidatat.",
+                    "spans": []
+                  }
+                ],
+                "buttonLink": {
+                  "link_type": "Web",
+                  "url": "https://slicemachine.dev"
+                },
+                "buttonText": "expedite virtual experiences"
+              }
+            ],
+            "primary": {
+              "tagline": [
+                {
+                  "type": "paragraph",
+                  "text": "Reprehenderit nulla aute non voluptate labore adipisicing sint qui ad mollit amet consectetur proident. Et sint cillum exercitation sit.",
+                  "spans": []
+                }
+              ],
+              "text": [
+                {
+                  "type": "paragraph",
+                  "text": "Ad proident qui Lorem sit irure et officia qui exercitation pariatur deserunt adipisicing et id deserunt.",
+                  "spans": []
+                }
+              ],
+              "alignment": "Left"
+            }
+          }
+        },
+        "meta": {
+          "fileName": "index",
+          "extension": "js"
+        },
+        "screenshotPaths": {
+          "default": {
+            "path": "/home/jdev/Dev/Estudos/estudos-2.0/Next-Prismic/crash-course-next/.slicemachine/assets/slices/Features/default/preview.png",
+            "width": 800,
+            "height": 820
+          }
+        }
+      },
+      "hero": {
+        "library": "slices",
+        "id": "hero",
+        "name": "Hero",
+        "description": "Hero",
+        "model": {
+          "id": "hero",
+          "type": "SharedSlice",
+          "name": "Hero",
+          "description": "Hero",
+          "variations": [
+            {
+              "id": "default",
+              "name": "Default",
+              "docURL": "...",
+              "version": "sktwi1xtmkfgx8626",
+              "description": "Hero",
+              "primary": {
+                "tagline": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "Tagline",
+                    "placeholder": "Optional - Text above the title",
+                    "allowTargetBlank": true,
+                    "single": "paragraph"
+                  }
+                },
+                "text": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "Text",
+                    "placeholder": "Optional - Main text to display",
+                    "allowTargetBlank": true,
+                    "multi": "paragraph,strong,em,hyperlink"
+                  }
+                },
+                "title": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "Title",
+                    "placeholder": "Large, bold title",
+                    "allowTargetBlank": true,
+                    "single": "heading1"
+                  }
+                },
+                "backgroundImage": {
+                  "type": "Image",
+                  "config": {
+                    "label": "Background Image",
+                    "constraint": {},
+                    "thumbnails": []
+                  }
+                }
+              },
+              "items": {
+                "buttonLink": {
+                  "type": "Link",
+                  "config": {
+                    "label": "Button Link",
+                    "placeholder": "Link for the button",
+                    "select": null
+                  }
+                },
+                "buttonText": {
+                  "type": "Text",
+                  "config": {
+                    "label": "Button Text",
+                    "placeholder": "Optional - Text for the button"
+                  }
+                },
+                "buttonStyle": {
+                  "type": "Select",
+                  "config": {
+                    "label": "Button Style",
+                    "placeholder": "Determines the button's appearance",
+                    "options": [
+                      "Filled",
+                      "Outlined"
+                    ],
+                    "default_value": "Filled"
+                  }
+                }
+              },
+              "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+            }
+          ]
+        },
+        "mocks": {
+          "default": {
+            "variation": "default",
+            "name": "Default",
+            "slice_type": "hero",
+            "items": [
+              {
+                "buttonLink": {
+                  "link_type": "Web",
+                  "url": "https://prismic.io"
+                },
+                "buttonText": "deliver revolutionary eyeballs",
+                "buttonStyle": "Filled"
+              },
+              {
+                "buttonLink": {
+                  "link_type": "Web",
+                  "url": "http://google.com"
+                },
+                "buttonText": "embrace robust functionalities",
+                "buttonStyle": "Outlined"
+              },
+              {
+                "buttonLink": {
+                  "link_type": "Web",
+                  "url": "https://prismic.io"
+                },
+                "buttonText": "engineer back-end mindshare",
+                "buttonStyle": "Filled"
+              },
+              {
+                "buttonLink": {
+                  "link_type": "Web",
+                  "url": "http://twitter.com"
+                },
+                "buttonText": "brand integrated e-tailers",
+                "buttonStyle": "Filled"
+              },
+              {
+                "buttonLink": {
+                  "link_type": "Web",
+                  "url": "https://prismic.io"
+                },
+                "buttonText": "scale cutting-edge systems",
+                "buttonStyle": "Outlined"
+              }
+            ],
+            "primary": {
+              "tagline": [
+                {
+                  "type": "paragraph",
+                  "text": "Anim cillum dolore do. Sint irure ad cillum eu consectetur dolor occaecat laborum deserunt.",
+                  "spans": []
+                }
+              ],
+              "text": [
+                {
+                  "type": "paragraph",
+                  "text": "Magna adipisicing eiusmod laborum irure officia magna non.",
+                  "spans": []
+                }
+              ],
+              "title": [
+                {
+                  "type": "heading1",
+                  "text": "Aggregate sticky niches",
+                  "spans": []
+                }
+              ],
+              "backgroundImage": {
+                "dimensions": {
+                  "width": 900,
+                  "height": 500
+                },
+                "alt": "Placeholder image",
+                "copyright": null,
+                "url": "https://images.unsplash.com/photo-1576662712957-9c79ae1280f8?w=900&h=500&fit=crop"
+              }
+            }
+          }
+        },
+        "meta": {
+          "fileName": "index",
+          "extension": "js"
+        },
+        "screenshotPaths": {
+          "default": {
+            "path": "/home/jdev/Dev/Estudos/estudos-2.0/Next-Prismic/crash-course-next/.slicemachine/assets/slices/Hero/default/preview.png",
+            "width": 800,
+            "height": 700
+          }
+        }
+      },
+      "image_and_text": {
+        "library": "slices",
+        "id": "image_and_text",
+        "name": "ImageAndText",
+        "description": "ImageAndText",
+        "model": {
+          "id": "image_and_text",
+          "type": "SharedSlice",
+          "name": "ImageAndText",
+          "description": "ImageAndText",
+          "variations": [
+            {
+              "id": "default",
+              "name": "Default",
+              "docURL": "...",
+              "version": "sktwi1xtmkfgx8626",
+              "description": "ImageAndText",
+              "primary": {
+                "imageSide": {
+                  "type": "Select",
+                  "config": {
+                    "label": "Image Side",
+                    "placeholder": "",
+                    "options": [
+                      "Left",
+                      "Right"
+                    ],
+                    "default_value": "Left"
+                  }
+                },
+                "image": {
+                  "type": "Image",
+                  "config": {
+                    "label": "Image",
+                    "constraint": {},
+                    "thumbnails": []
+                  }
+                },
+                "tagline": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "Tagline",
+                    "placeholder": "Optional - Text above the main text",
+                    "allowTargetBlank": true,
+                    "single": "paragraph"
+                  }
+                },
+                "text": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "Text",
+                    "placeholder": "Main text to display",
+                    "allowTargetBlank": true,
+                    "multi": "paragraph,preformatted,heading1,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                  }
+                },
+                "buttonLink": {
+                  "type": "Link",
+                  "config": {
+                    "label": "Button Link",
+                    "placeholder": "Optional - Link for the button",
+                    "select": null
+                  }
+                },
+                "buttonText": {
+                  "type": "Text",
+                  "config": {
+                    "label": "Button Text",
+                    "placeholder": "Optional - Text for the button"
+                  }
+                }
+              },
+              "items": {},
+              "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+            }
+          ]
+        },
+        "mocks": {
+          "default": {
+            "variation": "default",
+            "name": "Default",
+            "slice_type": "image_and_text",
+            "items": [],
+            "primary": {
+              "imageSide": "Right",
+              "image": {
+                "dimensions": {
+                  "width": 900,
+                  "height": 500
+                },
+                "alt": "Placeholder image",
+                "copyright": null,
+                "url": "https://images.unsplash.com/photo-1448932223592-d1fc686e76ea?w=900&h=500&fit=crop"
+              },
+              "tagline": [
+                {
+                  "type": "paragraph",
+                  "text": "Pariatur deserunt aute officia qui amet duis. Cupidatat excepteur esse ad fugiat esse fugiat consequat id. Laboris enim officia veniam deserunt do eiusmod nulla id sint consequat duis nisi nulla.",
+                  "spans": []
+                }
+              ],
+              "text": [
+                {
+                  "type": "heading1",
+                  "text": "Incubate world-class e-commerce",
+                  "spans": []
+                },
+                {
+                  "type": "paragraph",
+                  "text": "Elit eiusmod sint esse ipsum excepteur. Esse excepteur Lorem fugiat cupidatat occaecat adipisicing aute do aute ullamco occaecat commodo id et. Esse nisi enim enim excepteur consectetur nulla commodo cillum esse.",
+                  "spans": []
+                }
+              ],
+              "buttonLink": {
+                "link_type": "Web",
+                "url": "https://prismic.io"
+              },
+              "buttonText": "expedite plug-and-play partnerships"
+            }
+          }
+        },
+        "meta": {
+          "fileName": "index",
+          "extension": "js"
+        },
+        "screenshotPaths": {
+          "default": {
+            "path": "/home/jdev/Dev/Estudos/estudos-2.0/Next-Prismic/crash-course-next/.slicemachine/assets/slices/ImageAndText/default/preview.png",
+            "width": 800,
+            "height": 524
+          }
+        }
+      }
+    }
+  }
+}

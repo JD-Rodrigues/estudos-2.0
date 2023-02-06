@@ -1,12 +1,21 @@
-@import variables
-@import mixins
+@use 'variables'
+@use 'mixins'
+@use 'fonts'
+
+
+.rounded 
+  border-radius: 5px
 
 body 
-  background-color: $bg-color
-  padding: $bg-padding
+  background-color: variables.$bg-color
+  padding: variables.$bg-padding
 
 .btn
-  @include btn($btn-color, #FFF)
+  @include mixins.btn(variables.$btn-color, #FFF)
+  @extend %btn-font
+  @extend .rounded
 
 .btn-2
-  @include btn($btn-color-2, #000)
+  @include mixins.btn(variables.$btn-color-2, #000)
+  @extend %btn-font
+

@@ -1,3 +1,13 @@
+.btn, .btn-2 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.rounded, .btn {
+  border-radius: 5px;
+}
+
 body {
   background-color: #c6538c;
   padding: 20px;

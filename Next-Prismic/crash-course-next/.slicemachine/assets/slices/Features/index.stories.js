@@ -1,0 +1,9 @@
+import MyComponent from '../../../../slices/Features';
+
+export default {
+  title: 'slices/Features'
+}
+
+
+export const _Default = () => <MyComponent slice={{"variation":"default","name":"Default","slice_type":"features","items":[{"image":{"dimensions":{"width":900,"height":500},"alt":"Placeholder image","copyright":null,"url":"https://images.unsplash.com/photo-1587614295999-6c1c13675117?w=900&h=500&fit=crop"},"description":[{"type":"paragraph","text":"Nulla nostrud aute cillum irure ut ipsum esse adipisicing fugiat ad aliquip. Dolore et magna eu officia dolore ullamco quis dolor laboris proident eu nisi reprehenderit.","spans":[]}],"buttonLink":{"link_type":"Web","url":"http://google.com"},"buttonText":"extend global models"},{"image":{"dimensions":{"width":900,"height":500},"alt":"Placeholder image","copyright":null,"url":"https://images.unsplash.com/photo-1607582278043-57198ac8da43?w=900&h=500&fit=crop"},"description":[{"type":"paragraph","text":"Laboris ullamco irure esse adipisicing minim enim dolor ad esse laborum mollit adipisicing consectetur. Officia Lorem sit occaecat dolor irure ipsum sint consectetur officia mollit cupidatat.","spans":[]}],"buttonLink":{"link_type":"Web","url":"https://slicemachine.dev"},"buttonText":"expedite virtual experiences"}],"primary":{"tagline":[{"type":"paragraph","text":"Reprehenderit nulla aute non voluptate labore adipisicing sint qui ad mollit amet consectetur proident. Et sint cillum exercitation sit.","spans":[]}],"text":[{"type":"paragraph","text":"Ad proident qui Lorem sit irure et officia qui exercitation pariatur deserunt adipisicing et id deserunt.","spans":[]}],"alignment":"Left"},"id":"_Default"}} />
+_Default.storyName = 'Default'
