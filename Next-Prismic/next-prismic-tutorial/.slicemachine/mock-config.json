@@ -1,0 +1,15 @@
+{
+  "slices": {
+    "Example": {
+      "default": {
+        "primary": {},
+        "items": {}
+      }
+    }
+  },
+  "_cts": {
+    "category": {},
+    "item_description": {},
+    "item": {}
+  }
+}

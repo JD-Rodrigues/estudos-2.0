@@ -1,6 +1,78 @@
 {
   "slices": {
     "components": {
+      "example": {
+        "library": "slices",
+        "id": "example",
+        "name": "Example",
+        "description": "Example",
+        "model": {
+          "id": "example",
+          "type": "SharedSlice",
+          "name": "Example",
+          "description": "Example",
+          "variations": [
+            {
+              "id": "default",
+              "name": "Default",
+              "docURL": "...",
+              "version": "sktwi1xtmkfgx8626",
+              "description": "Example",
+              "primary": {
+                "title": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "Slice exemplo",
+                    "placeholder": "This is where it all begins...",
+                    "allowTargetBlank": true,
+                    "single": "heading1"
+                  }
+                },
+                "description": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "Finalidade",
+                    "placeholder": "Este é um slice exemplo",
+                    "allowTargetBlank": true,
+                    "single": "paragraph,em"
+                  }
+                }
+              },
+              "items": {},
+              "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+            }
+          ]
+        },
+        "mocks": {
+          "default": {
+            "variation": "default",
+            "name": "Default",
+            "slice_type": "example",
+            "items": [],
+            "primary": {
+              "title": [
+                {
+                  "type": "heading1",
+                  "text": "Implement back-end deliverables",
+                  "spans": []
+                }
+              ],
+              "description": [
+                {
+                  "type": "paragraph",
+                  "text": "Occaecat sunt nostrud et nisi. Consectetur tempor non minim commodo. Cupidatat eu culpa pariatur.",
+                  "spans": []
+                }
+              ]
+            }
+          }
+        },
+        "meta": {
+          "fileName": "index",
+          "extension": "js"
+        },
+        "screenshotPaths": {}
+      },
       "features": {
         "library": "slices",
         "id": "features",

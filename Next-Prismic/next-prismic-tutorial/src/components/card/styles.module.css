@@ -1,0 +1,28 @@
+.card {
+  width: 250px;
+  height: 400px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border: black solid;
+  font-weight: bold;
+  
+}
+
+
+
+/* .img {
+  width: 50%;
+
+} */
+
+ 
+.title {
+  width: 100%;
+  text-transform: uppercase;
+  font-size: 14px;
+  line-break: strict;
+}
+

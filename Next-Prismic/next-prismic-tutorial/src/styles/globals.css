@@ -1,0 +1,10 @@
+main {
+  padding: 100px;
+  display: flex;
+  justify-content: center;
+  column-gap: 30px;
+}
+
+.item {
+  list-style-type:none;
+}

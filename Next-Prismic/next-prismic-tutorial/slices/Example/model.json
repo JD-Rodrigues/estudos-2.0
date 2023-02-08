@@ -1,0 +1,72 @@
+{
+  "id": "example",
+  "type": "SharedSlice",
+  "name": "Example",
+  "description": "Example",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "sktwi1xtmkfgx8626",
+      "description": "Example",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Slice example",
+            "placeholder": "This is where it all begins...",
+            "allowTargetBlank": true,
+            "single": "heading1"
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Finalidade",
+            "placeholder": "Este é um slice exemplo",
+            "allowTargetBlank": true,
+            "single": "paragraph,em"
+          }
+        },
+        "creator": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Creator",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        }
+      },
+      "items": {
+        "item_name": {
+          "type": "StructuredText",
+          "config": {
+            "label": "item name",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading2,strong"
+          }
+        },
+        "item_pic": {
+          "type": "Image",
+          "config": {
+            "label": "item pic",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "desc_link": {
+          "type": "Link",
+          "config": {
+            "label": "desc link",
+            "placeholder": "",
+            "select": null
+          }
+        }
+      },
+      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+    }
+  ]
+}
