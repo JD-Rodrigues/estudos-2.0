@@ -13,7 +13,12 @@ const endpoint = prismic.getEndpoint(repoName); // Takes your repository name an
 const client = prismic.createClient(endpoint); // Creates an API client object.
 
 export const getPages = async () => {
-  const pages = await client.getAllByType('item')
+  const pages = await client.getAllByType('item', {
+      orderings: {
+        field: 'document.first_publication_date',
+        direction: 'desc',
+      }
+  })
   return pages
 }
 
