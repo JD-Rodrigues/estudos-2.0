@@ -1,9 +1,8 @@
-
+require('dotenv').config()
+// console.log(process.env)
 const { MongoClient} = require('mongodb');
 
-const uri = "mongodb+srv://domingosrodrigues:readyplayer1@cluster0.c9afncg.mongodb.net/?retryWrites=true&w=majority";
-
-const client = new MongoClient(uri);
+const client = new MongoClient(process.env.MONGODB_URI);
 
 
 // Se receber um objeto com um par de chave e valor, retorna um documento filtrado pelo parâmetro recebido.
@@ -21,6 +20,8 @@ const read = async (query = {}) => {
     client.close()
   }
 }
+
+
 
 
 // Recebe um array como argumento, e nele um objeto de propriedades para cada documento que será inserido à collection.
@@ -66,8 +67,10 @@ const del = async (filter) => {
 
 
 
-read().then(console.log)
-// create([{name:'Mirla Bertioga', email:'contato@berthe.com', cod:'fsdjkfhds4hg'}])
+read().then(data => console.log(data[data.length-1].cart.items))
+// create([{name:'Afonso Santos', email:'contato@afonso.com', cod:'fsdjkfhds4hg', pic:'http://iudhauisdhadha.jpg', cart:{cartId: 'hdash44', date: Date(), items: [{itemName: 'Sabonete', price: 1.50, quant:2},{itemName:'Biscoito', price:4.75, quant: 1}, {itemName: 'retrovisor', price: 115, quant:3}]}}])
 // update({name:'Romário Santos'}, {$set: {email:'didé@gmail.com'}}, {upsert:true})
 
-// del({name:'Romário Santos'})
+
+
+
