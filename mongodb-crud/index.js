@@ -5,21 +5,21 @@ const { MongoClient} = require('mongodb');
 const client = new MongoClient(process.env.MONGODB_URI);
 
 
-// Se receber um objeto com um par de chave e valor, retorna um documento filtrado pelo parâmetro recebido.
-// Se não receber nenhum parâmetro, retorna todos os documentos da collection.
-const read = async (query = {}) => {
-  try {
-    const db = client.db('store')
-    const collection = db.collection('costumers')
-    const data = collection.find(query)
-    const docs = []
-    await data.forEach(doc => docs.push(doc))
-    return docs
-    // await doc.forEach(console.dir)
-  } finally {
-    client.close()
-  }
-}
+// // Se receber um objeto com um par de chave e valor, retorna um documento filtrado pelo parâmetro recebido.
+// // Se não receber nenhum parâmetro, retorna todos os documentos da collection.
+// const read = async (query = {}) => {
+//   try {
+//     const db = client.db('store')
+//     const collection = db.collection('costumers')
+//     const data = collection.find(query)
+//     const docs = []
+//     await data.forEach(doc => docs.push(doc))
+//     return docs
+//     // await doc.forEach(console.dir)
+//   } finally {
+//     client.close()
+//   }
+// }
 
 
 
@@ -67,10 +67,26 @@ const del = async (filter) => {
 
 
 
-read().then(data => console.log(data[data.length-1].cart.items))
+// read().then(data => console.log(data[data.length-1].cart.items))
 // create([{name:'Afonso Santos', email:'contato@afonso.com', cod:'fsdjkfhds4hg', pic:'http://iudhauisdhadha.jpg', cart:{cartId: 'hdash44', date: Date(), items: [{itemName: 'Sabonete', price: 1.50, quant:2},{itemName:'Biscoito', price:4.75, quant: 1}, {itemName: 'retrovisor', price: 115, quant:3}]}}])
 // update({name:'Romário Santos'}, {$set: {email:'didé@gmail.com'}}, {upsert:true})
 
+//////////////////////////////////////////////////////
+/////////////////////////////////////////////////////
+////////////////////////////////////////////////////
 
 
+const read = async (coll, filter = {}) => {
+  try {
+    const db = client.db('store')
+    const collection = db.collection(coll)
+    const data = collection.find(filter)
+    const docs = []
+    await data.forEach(doc => docs.push(doc))
+    return docs
+  } finally {
+    client.close()
+  }
+}
 
+read('costumers', {name: 'Domingos Rodrigues'}).then(console.log)
