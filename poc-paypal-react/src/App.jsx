@@ -39,7 +39,7 @@ function App() {
   return (
     <div className="App">
       <div className='login__card'>
-        <PayPalScriptProvider options={paypalOptions} >
+        <PayPalScriptProvider options={{"client-id":CLIENT_ID}} >
           <PayPalButtons 
             styles={buttonStyles}
             createOrder={createOrder}
