@@ -8,9 +8,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 export class HttpPostClientSpy {
-    post(path) {
+    post(params) {
         return __awaiter(this, void 0, void 0, function* () {
-            this.url = path;
+            this.url = params.url;
         });
     }
 }

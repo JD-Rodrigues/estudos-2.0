@@ -1,5 +1,9 @@
-
+export type HttpPostParams = {
+  url:string
+  email?:string
+  password?:string
+}
 
 export interface HttpPostClient {
-  post(path:string): Promise<void>
+  post(params:HttpPostParams): Promise<void>
 }

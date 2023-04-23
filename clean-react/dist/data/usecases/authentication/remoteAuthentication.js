@@ -14,7 +14,9 @@ export class RemoteAuthentication {
     }
     auth() {
         return __awaiter(this, void 0, void 0, function* () {
-            yield this.httpPostClient.post(this.url);
+            yield this.httpPostClient.post({
+                url: this.url
+            });
         });
     }
 }
