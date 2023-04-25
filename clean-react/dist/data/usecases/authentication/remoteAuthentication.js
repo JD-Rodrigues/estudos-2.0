@@ -8,11 +8,11 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 export class RemoteAuthentication {
-    constructor(url, httpPostClient) {
-        this.url = url;
+    constructor(httpPostClient, url = "any_url") {
         this.httpPostClient = httpPostClient;
+        this.url = url;
     }
-    auth() {
+    auth(params) {
         return __awaiter(this, void 0, void 0, function* () {
             yield this.httpPostClient.post({
                 url: this.url

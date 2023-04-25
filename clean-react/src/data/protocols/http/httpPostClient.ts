@@ -1,7 +1,9 @@
 export type HttpPostParams = {
   url:string
-  email?:string
-  password?:string
+  body?: {
+    email:string
+    password:string
+  }
 }
 
 export interface HttpPostClient {
