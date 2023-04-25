@@ -11,6 +11,7 @@ export class HttpPostClientSpy {
     post(params) {
         return __awaiter(this, void 0, void 0, function* () {
             this.url = params.url;
+            this.body = params.body;
         });
     }
 }
