@@ -5,12 +5,12 @@
   box-sizing: border-box;
 }
 
-/* Container do slide */
+/* Slide container */
 /* .swiper-slide {  
    
 } */
 
-/* Imagens do carrossel */
+/* Carousel image */
 .swiper-slide img {
   object-fit: fill;
   object-position: center;
@@ -18,7 +18,7 @@
   aspect-ratio: 16/9;
 }
 
-/* Container contendo os pontinhos de navegação */
+/* Bullet points pagination container */
 .swiper-pagination {
   display: flex;
   justify-content: center;
@@ -26,13 +26,13 @@
   margin-bottom: 1vw;
 }
 
-/* Pontinhos de navegação */
+/* Bullet points pagination */
 .swiper-pagination-bullet {
   width: 0.58vw;
   height: 0.58vw;   
 }
 
-/* Setas de avançar e retroceder os slides. São ícones-fonte. */
+/* Prev and next arrows. They're icons-font. */
 .swiper-button-next::after, .swiper-button-prev::after {  
   font-size: 3.22vw;
 }
