@@ -3,9 +3,9 @@ import { Navigation, Pagination, Scrollbar } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import './App.css'
+import './AutoCarouselHeroPage.css'
 
-function App() {
+function AutoCarouselHeroPage() {
   return (
     <div className='container'>
       <Swiper
@@ -24,4 +24,4 @@ function App() {
   );
 }
 
-export default App
+export default AutoCarouselHeroPage
