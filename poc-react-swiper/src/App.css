@@ -16,6 +16,7 @@
   object-fit: fill;
   object-position: center;
   width: 100%;
+  max-height: 100%;
 }
 
 
@@ -41,7 +42,7 @@
 .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
   bottom: var(--swiper-pagination-bottom,1vw);
 }
-<<<<<<< HEAD
+
 
 .swiper-button-next,.swiper-button-next::after, .swiper-button-prev, .swiper-button-prev::after {
   
@@ -61,10 +62,6 @@ button {
   height: 40px;
 }
 
-=======
 
-/* .swiper-button-next,.swiper-button-next::after, .swiper-button-prev, .swiper-button-prev::after {
-  width: 2vw;
-  height: 3.22vw;
-} */
->>>>>>> da171179b24ef5b97360cb62c12aef309335ab8c
+
+
