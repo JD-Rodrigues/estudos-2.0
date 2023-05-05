@@ -30,11 +30,13 @@
 .swiper-pagination-bullet {
   width: 0.58vw;
   height: 0.58vw;   
+  background-color: white;
 }
 
 /* Prev and next arrows. They're icons-font. */
 .swiper-button-next::after, .swiper-button-prev::after {  
   font-size: 3.22vw;
+  color: white;
 }
 
 .swiper-button-next {

@@ -12,8 +12,10 @@ function AutoCarouselHeroPage() {
       modules={[Navigation, Pagination, Scrollbar]}
       scrollbar
       navigation
-      pagination 
       loop
+      pagination={{
+        clickable: true,
+      }}
       >
         <SwiperSlide ><img  src='https://cursinhoparamedicina.com.br/wp-content/uploads/2022/10/Paisagem-1.jpg'/></SwiperSlide>
         <SwiperSlide><img  src='https://images.ecycle.com.br/wp-content/uploads/2021/05/20195924/o-que-e-paisagem.jpg.webp'/></SwiperSlide>
