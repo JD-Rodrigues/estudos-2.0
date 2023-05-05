@@ -23,7 +23,7 @@ function App() {
       modules={[Navigation, Pagination, Scrollbar]}
       scrollbar
       navigation
-      pagination
+      pagination 
       loop
       onSwiper={(swiper) => console.log(swiper)}
       onSlideChange={() => console.log('slide change')}
@@ -34,7 +34,7 @@ function App() {
         <SwiperSlide><img className='imagem' src='https://viagemeturismo.abril.com.br/wp-content/uploads/2016/10/14179421596_b95c10db10_o.jpeg?quality=70&strip=info&w=928&w=636'/></SwiperSlide>
       
       </Swiper>
-    </div>
+    </div> 
   );
 }
 
