@@ -1,15 +1,16 @@
+/* Reset */
 *{
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
-.swiper-slide {  
-  /* aspect-ratio: 16/9; */
-  /* height: 56.2vw; */
-}
+/* Container do slide */
+/* .swiper-slide {  
+   
+} */
 
-
+/* Imagens do carrossel */
 .swiper-slide img {
   object-fit: fill;
   object-position: center;
@@ -22,6 +23,7 @@
   display: flex;
   justify-content: center;
   column-gap: 0.29vw;
+  margin-bottom: 1vw;
 }
 
 /* Pontinhos de navegação */
@@ -30,13 +32,8 @@
   height: 0.58vw;   
 }
 
-.swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
-  bottom: var(--swiper-pagination-bottom,1vw);
-}
-
-
-.swiper-button-next,.swiper-button-next::after, .swiper-button-prev, .swiper-button-prev::after {
-  
+/* Setas de avançar e retroceder os slides. São ícones-fonte. */
+.swiper-button-next::after, .swiper-button-prev::after {  
   font-size: 3.22vw;
 }
 
@@ -47,12 +44,3 @@
 .swiper-button-prev {
   left: var(--swiper-navigation-sides-offset,2vw);
 }
-
-button {
-  width: 100px;
-  height: 40px;
-}
-
-
-
-
