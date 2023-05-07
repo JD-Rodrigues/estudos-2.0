@@ -10,8 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "page-slices": "^0.0.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "tailgrids-react": "^0.1.5",
+    "tw-elements": "^1.0.0-beta2"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",

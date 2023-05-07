@@ -1,35 +1,24 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Navbar, NavbarListItem } from "tailgrids-react";
+import AutoCarouselHeroPage from "../node_modules/page-slices/src/sections/heropages/AutoCarouselHeroPage/index.jsx"
+// eslint-disable-next-line no-unused-vars
+import styles from "./index.module.css"
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Navbar
+        button2="Contate-nos"
+        logoSrc="http://www.old2.commonsupport.com/eronment/wp-content/themes/eronment/images/logo.png"
+      >
+        <NavbarListItem href="/#">Home</NavbarListItem>
+        <NavbarListItem href="/#">Payment</NavbarListItem>
+        <NavbarListItem href="/#">About</NavbarListItem>
+        <NavbarListItem href="/#">Blog</NavbarListItem>
+      </Navbar>
+      <AutoCarouselHeroPage />
     </>
   )
 }
-
+ 
 export default App

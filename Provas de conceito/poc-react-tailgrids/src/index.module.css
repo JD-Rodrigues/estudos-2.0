@@ -1,0 +1,24 @@
+header {
+  position: fixed; 
+  z-index: 999;
+  overflow: hidden;
+  
+}
+
+
+
+@media (min-width:1366px) {
+  header {
+    height: 6.5vw;    
+  }
+
+  li {
+    width: 8vw;
+  }
+
+  a fontsninja-text {
+    font-size: 1.2vw;
+    line-height: 0.5vw;
+  }
+}
+
