@@ -1,8 +1,8 @@
 import { HttpPostClient } from "data/protocols/http/httpPostClient";
 import { RemoteAuthentication } from "./remoteAuthentication";
-import { HttpPostClientSpy } from "../../tests/mockRemotePostClient";
+import { HttpPostClientSpy } from "@/data/tests/mockRemotePostClient";  
 import { faker } from '@faker-js/faker';
-import { makePostBody } from "../../tests/mockPostBody";
+import { makePostBody } from "@/data/tests/mockPostBody"; 
 
 const makeSut = (url='any_url') => {
   const httpPostClientSpy = new HttpPostClientSpy()
