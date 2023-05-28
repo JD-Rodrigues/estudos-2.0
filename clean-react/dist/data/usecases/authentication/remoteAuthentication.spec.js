@@ -1,6 +1,6 @@
 import { RemoteAuthentication } from "./remoteAuthentication";
 import { HttpPostClientSpy } from "@/data/tests/mockRemotePostClient";
-import { makePostBody } from "../../tests/mockPostBody";
+import { makePostBody } from "@/data/tests/mockPostBody";
 const makeSut = (url = 'any_url') => {
     const httpPostClientSpy = new HttpPostClientSpy();
     const sut = new RemoteAuthentication(url, httpPostClientSpy);
