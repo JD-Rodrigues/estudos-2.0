@@ -1,6 +1,6 @@
 
 
-export type StatusCode ={
+export type StatusCode = {
   unauthorized: 404
 }
 
