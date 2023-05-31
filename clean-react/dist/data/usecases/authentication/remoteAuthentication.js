@@ -7,6 +7,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+import { InvalidCredentialError } from "@/domain/errors/invalidCredentialError";
+import { StatusCode } from "@/data/protocols/http/httpResponse";
 export class RemoteAuthentication {
     constructor(url, httpPostClient) {
         this.url = url;
@@ -14,10 +16,18 @@ export class RemoteAuthentication {
     }
     auth(params) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield this.httpPostClient.post({
+            const res = yield this.httpPostClient.post({
                 url: this.url,
                 body: params
             });
+            switch (res.response) {
+                case StatusCode.unauthorized:
+                    throw new InvalidCredentialError();
+                    break;
+                default:
+                    return Promise.resolve();
+                    break;
+            }
         });
     }
 }

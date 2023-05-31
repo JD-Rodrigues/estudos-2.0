@@ -1,9 +1,10 @@
 
 
-export type StatusCode = {
-  unauthorized: 404
+export enum StatusCode {
+  noStatus= 999,
+  unauthorized=401
 }
 
 export interface HttpResponse {
-  response:StatusCode
+  response:number
 }

@@ -7,12 +7,11 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+import { StatusCode } from "@/data/protocols/http/httpResponse";
 export class HttpPostClientSpy {
     constructor() {
         this.res = {
-            response: {
-                unauthorized: 404
-            }
+            response: StatusCode.unauthorized
         };
     }
     post(params) {

@@ -1,8 +1,13 @@
 import { RemoteAuthentication } from "./remoteAuthentication";
 import { HttpPostClientSpy } from "@/data/tests/mockRemotePostClient";
 import { makePostBody } from "@/data/tests/mockPostBody";
+import { StatusCode } from "@/data/protocols/http/httpResponse";
+import { InvalidCredentialError } from "@/domain/errors/invalidCredentialError";
 const makeSut = (url = 'any_url') => {
     const httpPostClientSpy = new HttpPostClientSpy();
+    httpPostClientSpy.res = {
+        response: StatusCode.noStatus
+    };
     const sut = new RemoteAuthentication(url, httpPostClientSpy);
     return {
         sut,
@@ -21,5 +26,13 @@ describe('RemoteAuthentication', () => {
         const { sut, httpPostClientSpy } = makeSut();
         sut.auth(postBody);
         expect(httpPostClientSpy.body).toEqual(postBody);
+    });
+    it('should throw an "InvalidCredentialError" if HttpPostClient returns 401.', () => {
+        const { sut, httpPostClientSpy } = makeSut();
+        httpPostClientSpy.res = {
+            response: StatusCode.unauthorized
+        };
+        const promise = sut.auth(postBody);
+        expect(promise).rejects.toThrow(new InvalidCredentialError());
     });
 });
