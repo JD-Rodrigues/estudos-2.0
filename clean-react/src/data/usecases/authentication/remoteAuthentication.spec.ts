@@ -5,6 +5,7 @@ import { faker } from '@faker-js/faker';
 import { makePostBody } from "@/data/tests/mockPostBody"; 
 import { StatusCode } from "@/data/protocols/http/httpResponse";
 import { InvalidCredentialError } from "@/domain/errors/invalidCredentialError";
+import { UnexpectedError } from "@/domain/errors/unexpectedError";
 
 const makeSut = (url='any_url') => {
   const httpPostClientSpy = new HttpPostClientSpy()
@@ -40,5 +41,14 @@ describe('RemoteAuthentication', () => {
     }
     const promise = sut.auth(postBody)
     expect(promise).rejects.toThrow(new InvalidCredentialError())
+  })
+
+  it('should throw an "UnexpectedError" if HttpPostClient returns 404.', ()=> {   
+    const {sut, httpPostClientSpy} = makeSut()
+    httpPostClientSpy.res = {
+      response: StatusCode.unexpected
+    }
+    const promise = sut.auth(postBody)
+    expect(promise).rejects.toThrow(new UnexpectedError())
   })
 })
