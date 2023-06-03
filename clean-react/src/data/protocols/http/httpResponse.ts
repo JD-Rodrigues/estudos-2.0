@@ -1,9 +1,11 @@
 
 
 export enum StatusCode {
-  noStatus= 999,
+  ok = 200,
+  noContent = 204,
+  badRequest = 400,
   unauthorized=401,
-  unexpected = 400
+  notFound = 404,
 }
 
 export interface HttpResponse {

@@ -19,11 +19,10 @@ export class RemoteAuthentication {
     switch (res.response) {
       case StatusCode.unauthorized:
         throw new InvalidCredentialError();
-      case StatusCode.unexpected:
-        throw new UnexpectedError()    
+      case StatusCode.ok:
+        break   
       default: 
-        return Promise.resolve()
-        break;
+        throw new UnexpectedError();
     }
   }
 }
