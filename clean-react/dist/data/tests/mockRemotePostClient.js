@@ -11,7 +11,7 @@ import { StatusCode } from "@/data/protocols/http/httpResponse";
 export class HttpPostClientSpy {
     constructor() {
         this.res = {
-            response: StatusCode.unauthorized
+            response: StatusCode.unauthorized,
         };
     }
     post(params) {

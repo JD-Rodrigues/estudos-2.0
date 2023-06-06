@@ -1,3 +1,4 @@
+import { AccountModel } from "@/domain/models/accountModel"
 
 
 export enum StatusCode {
@@ -8,6 +9,7 @@ export enum StatusCode {
   notFound = 404,
 }
 
-export interface HttpResponse {
+export interface HttpResponse<T> {
   response:number
+  body?:T
 }

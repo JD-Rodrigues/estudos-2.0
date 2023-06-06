@@ -6,9 +6,11 @@ import { makePostBody } from "@/data/tests/mockPostBody";
 import { StatusCode } from "@/data/protocols/http/httpResponse";
 import { InvalidCredentialError } from "@/domain/errors/invalidCredentialError";
 import { UnexpectedError } from "@/domain/errors/unexpectedError";
+import { AuthenticationParams } from "@/domain/usercases/authentication";
+import { AccountModel } from "@/domain/models/accountModel";
 
 const makeSut = (url='any_url') => {
-  const httpPostClientSpy = new HttpPostClientSpy()
+  const httpPostClientSpy = new HttpPostClientSpy<AuthenticationParams, AccountModel>()
   httpPostClientSpy.res = {
     response: StatusCode.ok
   }
@@ -28,7 +30,7 @@ describe('RemoteAuthentication', () => {
     expect(httpPostClientSpy.url).toBe(url)
   })
 
-  it('should call httpPostClient.post() with the correct body', ()=> {   
+  it('should call httpPostClient.post() with the correct body', ()=> {    
     const {sut, httpPostClientSpy} = makeSut()
     sut.auth(postBody)
     expect(httpPostClientSpy.body).toEqual(postBody)
