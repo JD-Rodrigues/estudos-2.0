@@ -21,7 +21,7 @@ export class RemoteAuthentication {
       case StatusCode.unauthorized:
         throw new InvalidCredentialError();
       case StatusCode.ok:
-        break   
+        return res.body  
       default: 
         throw new UnexpectedError();
     }
