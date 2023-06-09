@@ -1,6 +1,6 @@
 import { RemoteAuthentication } from "./remoteAuthentication";
 import { HttpPostClientSpy } from "@/data/tests/mockRemotePostClient";
-import { makePostBody } from "@/data/tests/mockPostBody";
+import { makeAccountModel, makePostBody } from "@/data/tests/mockAuth";
 import { StatusCode } from "@/data/protocols/http/httpResponse";
 import { InvalidCredentialError } from "@/domain/errors/invalidCredentialError";
 import { UnexpectedError } from "@/domain/errors/unexpectedError";
@@ -59,5 +59,15 @@ describe('RemoteAuthentication', () => {
         };
         const promise = sut.auth(postBody);
         expect(promise).rejects.toThrow(new UnexpectedError());
+    });
+    it('should return a random uuid if HttpPostClient returns 200.', () => {
+        const { sut, httpPostClientSpy } = makeSut();
+        const responseBody = makeAccountModel();
+        httpPostClientSpy.res = {
+            response: StatusCode.ok,
+            body: responseBody
+        };
+        const promise = sut.auth(postBody);
+        expect(promise).resolves.toEqual(responseBody);
     });
 });
