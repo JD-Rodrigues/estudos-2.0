@@ -1,7 +1,7 @@
 import { RemoteAuthentication } from "./remoteAuthentication";
 import { HttpPostClientSpy } from "@/data/tests/mockRemotePostClient";
 import { makeAccountModel, makePostBody } from "@/data/tests/mockAuth";
-import { StatusCode } from "@/data/protocols/http/httpResponse";
+import { StatusCode } from "@/data/protocols/http";
 import { InvalidCredentialError } from "@/domain/errors/invalidCredentialError";
 import { UnexpectedError } from "@/domain/errors/unexpectedError";
 const makeSut = (url = 'any_url') => {

@@ -1,9 +1,7 @@
-import { HttpPostClient } from "data/protocols/http/httpPostClient";
 import { RemoteAuthentication } from "./remoteAuthentication";
 import { HttpPostClientSpy } from "@/data/tests/mockRemotePostClient";  
-import { faker } from '@faker-js/faker';
 import { makeAccountModel, makePostBody } from "@/data/tests/mockAuth"; 
-import { StatusCode } from "@/data/protocols/http/httpResponse";
+import { StatusCode } from "@/data/protocols/http";
 import { InvalidCredentialError } from "@/domain/errors/invalidCredentialError";
 import { UnexpectedError } from "@/domain/errors/unexpectedError";
 import { AuthenticationParams } from "@/domain/usercases/authentication";

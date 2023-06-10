@@ -1,6 +1,3 @@
-import { AccountModel } from "@/domain/models/accountModel"
-
-
 export enum StatusCode {
   ok = 200,
   noContent = 204,
