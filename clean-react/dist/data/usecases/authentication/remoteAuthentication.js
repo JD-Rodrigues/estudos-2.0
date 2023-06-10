@@ -7,9 +7,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import { InvalidCredentialError } from "@/domain/errors/invalidCredentialError";
+import { InvalidCredentialError, UnexpectedError } from "@/domain/errors";
 import { StatusCode } from "@/data/protocols/http";
-import { UnexpectedError } from "@/domain/errors/unexpectedError";
 export class RemoteAuthentication {
     constructor(url, httpPostClient) {
         this.url = url;
