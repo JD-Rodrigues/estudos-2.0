@@ -8,5 +8,5 @@ export const makePostBody = ():AuthenticationParams =>  ({
 })
 
 export const makeAccountModel = ():AccountModel =>  ({ 
-  accessToken: faker.random.alphaNumeric()
+  accessToken: faker.string.alpha.toString() 
 })

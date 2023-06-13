@@ -5,7 +5,7 @@ import axios from "axios";
 
 export class AxiosHttpClient {
   async post(params:HttpPostParams<AuthenticationParams>): Promise<void> {
-    await axios.post(params.url) 
+    await axios.post(params.url, params.body)  
   }
 }
 

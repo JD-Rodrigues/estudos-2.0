@@ -11,7 +11,7 @@ import axios from "axios";
 export class AxiosHttpClient {
     post(params) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield axios.post(params.url);
+            yield axios.post(params.url, params.body);
         });
     }
 }

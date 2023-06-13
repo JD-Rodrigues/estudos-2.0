@@ -4,5 +4,5 @@ export const makePostBody = () => ({
     password: faker.internet.password()
 });
 export const makeAccountModel = () => ({
-    accessToken: faker.random.alphaNumeric()
+    accessToken: faker.string.alpha.toString()
 });
