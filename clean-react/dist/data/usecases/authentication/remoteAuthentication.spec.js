@@ -6,7 +6,7 @@ import { InvalidCredentialError, UnexpectedError } from "@/domain/errors";
 const makeSut = (url = 'any_url') => {
     const httpPostClientSpy = new HttpPostClientSpy();
     httpPostClientSpy.res = {
-        response: StatusCode.ok
+        status: StatusCode.ok
     };
     const sut = new RemoteAuthentication(url, httpPostClientSpy);
     return {
@@ -30,7 +30,7 @@ describe('RemoteAuthentication', () => {
     it('should throw an "UnexpectedError" if HttpPostClient returns 204.', () => {
         const { sut, httpPostClientSpy } = makeSut();
         httpPostClientSpy.res = {
-            response: StatusCode.noContent
+            status: StatusCode.noContent
         };
         const promise = sut.auth(postBody);
         expect(promise).rejects.toThrow(new UnexpectedError());
@@ -38,7 +38,7 @@ describe('RemoteAuthentication', () => {
     it('should throw an "UnexpectedError" if HttpPostClient returns 400.', () => {
         const { sut, httpPostClientSpy } = makeSut();
         httpPostClientSpy.res = {
-            response: StatusCode.badRequest
+            status: StatusCode.badRequest
         };
         const promise = sut.auth(postBody);
         expect(promise).rejects.toThrow(new UnexpectedError());
@@ -46,7 +46,7 @@ describe('RemoteAuthentication', () => {
     it('should throw an "InvalidCredentialError" if HttpPostClient returns 401.', () => {
         const { sut, httpPostClientSpy } = makeSut();
         httpPostClientSpy.res = {
-            response: StatusCode.unauthorized
+            status: StatusCode.unauthorized
         };
         const promise = sut.auth(postBody);
         expect(promise).rejects.toThrow(new InvalidCredentialError());
@@ -54,7 +54,7 @@ describe('RemoteAuthentication', () => {
     it('should throw an "UnexpectedError" if HttpPostClient returns 404.', () => {
         const { sut, httpPostClientSpy } = makeSut();
         httpPostClientSpy.res = {
-            response: StatusCode.notFound
+            status: StatusCode.notFound
         };
         const promise = sut.auth(postBody);
         expect(promise).rejects.toThrow(new UnexpectedError());
@@ -63,7 +63,7 @@ describe('RemoteAuthentication', () => {
         const { sut, httpPostClientSpy } = makeSut();
         const responseBody = makeAccountModel();
         httpPostClientSpy.res = {
-            response: StatusCode.ok,
+            status: StatusCode.ok,
             body: responseBody
         };
         const promise = sut.auth(postBody);

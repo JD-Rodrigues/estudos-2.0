@@ -11,11 +11,12 @@ import { StatusCode } from "@/data/protocols/http";
 export class HttpPostClientSpy {
     constructor() {
         this.res = {
-            response: StatusCode.unauthorized,
+            status: StatusCode.unauthorized,
         };
     }
     post(params) {
         return __awaiter(this, void 0, void 0, function* () {
+            // O código abaixo existe porque, ao testar se  o método está sendo chamado com os argumentos corretos, estes arqumentos precisam estar salvos em algum lugar, a fim de efetuar a checagem. neste caso, estão sendo atribuídos às propriedades da classe, que também existem por esse motivo.
             this.url = params.url;
             this.body = params.body;
             return Promise.resolve(this.res);
