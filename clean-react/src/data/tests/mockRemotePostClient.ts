@@ -1,5 +1,7 @@
 import { HttpPostClient, HttpPostParams } from "@/data/protocols/http"
 import { HttpResponse, StatusCode } from "@/data/protocols/http"
+import { AuthenticationParams } from "@/domain/usercases/authentication"
+
 
 export class HttpPostClientSpy<T, R> implements HttpPostClient<T, R> {
   url?: string

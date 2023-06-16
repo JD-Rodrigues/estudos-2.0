@@ -11,7 +11,11 @@ import axios from "axios";
 export class AxiosHttpClient {
     post(params) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield axios.post(params.url, params.body);
+            const response = yield axios.post(params.url, params.body);
+            return {
+                status: response.status,
+                body: response.data
+            };
         });
     }
 }

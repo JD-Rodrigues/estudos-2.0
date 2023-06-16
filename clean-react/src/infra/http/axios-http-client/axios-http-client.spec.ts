@@ -6,43 +6,55 @@ jest.mock('axios')
 
 const mockedAxios = axios as jest.Mocked<typeof axios>
 
-const axiosPostResponse = {
-  status: faker.number.int(),
-  data: faker.animal.bird()
-} 
+const makeAxiosPostResponse = () => {
+  return {
+    status: faker.number.int(),
+    data: faker.animal.bird()
+  } 
+}
+
+const mockedAxiosPostResponse = makeAxiosPostResponse()
+
+mockedAxios.post.mockResolvedValue(mockedAxiosPostResponse)
+
+
  
 
-mockedAxios.post.mockResolvedValue(axiosPostResponse)
 
 
 
 
-describe('AxiosHttpClient', ()=> {
+
+describe('AxiosHttpClient', ()=> { 
   const makeSut = ()=> new AxiosHttpClient()
+  const makePostParams = () => {
+    return {
+      url: faker.internet.url(), 
+      body: {
+        email: faker.internet.email(),
+        password: faker.string.alphanumeric()
+      }
+    }
+  }
+  
 
-  it('should call axios with the correct values', ()=> {
+  it('should call axios with the correct values', ()=> {    
     const sut = makeSut()
-    const url = faker.internet.url()
-    const body = {email:'contato@jd.com', password:'123' }
-    sut.post({url:url, body: body})  
-    expect(mockedAxios.post).toHaveBeenCalledWith(url, body) 
-  }) 
+    const postParams = makePostParams()
+    sut.post(postParams)  
+    expect(mockedAxios.post).toHaveBeenCalledWith(postParams.url, postParams.body)
+    }) 
 
-  it('should returns the correct statuscode and body', ()=> {
+  
+  it('should returns the correct statuscode and body', ()=> {    
     const sut = makeSut()
-    const url = faker.internet.url()
-    const body = {email:'contato@jd.com', password:'123' } 
-    const response = sut.post({url:url, body: body})  
-    response.then(console.log) 
+    const postParams = makePostParams()
+    const response = sut.post(postParams)  
     expect(response).resolves.toEqual(
       { 
-        status: axiosPostResponse.status,
-        body: {
-          accessToken: axiosPostResponse.data, 
-        } 
+        status: mockedAxiosPostResponse.status,
+        body: mockedAxiosPostResponse.data
       }  
     )
   }) 
-
-  
-})
+})   

@@ -7,6 +7,6 @@ export enum StatusCode {
 }
 
 export interface HttpResponse<T> {
-  response:number
+  status:number
   body?:T
 }

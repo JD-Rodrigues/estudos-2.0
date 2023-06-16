@@ -20,7 +20,7 @@ export class RemoteAuthentication {
                 url: this.url,
                 body: params
             });
-            switch (res.response) {
+            switch (res.status) {
                 case StatusCode.unauthorized:
                     throw new InvalidCredentialError();
                 case StatusCode.ok:

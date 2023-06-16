@@ -16,11 +16,11 @@ export class RemoteAuthentication implements Authentication {
       body: params
     }) 
 
-    switch (res.response) {
+    switch (res.status) {
       case StatusCode.unauthorized:
         throw new InvalidCredentialError();
       case StatusCode.ok:
-        return res.body  
+        return res.body   
       default: 
         throw new UnexpectedError();
     }
