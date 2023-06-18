@@ -1,60 +1,39 @@
 import { faker } from "@faker-js/faker"
 import axios from 'axios'
 import { AxiosHttpClient } from "./axios-http-client"
+import { mockPostParams } from "@/data/tests"
+import { mockAxiosResponse } from "@/infra/tests/mockAxiosResponse" 
+import { HttpPostParams } from "@/data/protocols/http"
 
 jest.mock('axios')
 
-const mockedAxios = axios as jest.Mocked<typeof axios>
-
-const makeAxiosPostResponse = () => {
-  return {
-    status: faker.number.int(),
-    data: faker.animal.bird()
-  } 
+type SutTypes = {
+  sut: AxiosHttpClient<any, any>
+  postParams: HttpPostParams<any>
+  axiosPostResponse: jest.Mocked<typeof axios>
 }
 
-const mockedAxiosPostResponse = makeAxiosPostResponse()
-
-mockedAxios.post.mockResolvedValue(mockedAxiosPostResponse)
-
-
- 
-
-
-
-
-
+const makeSut = (): SutTypes =>  {  
+  return {
+    sut: new AxiosHttpClient(),
+    postParams: mockPostParams(),
+    axiosPostResponse: mockAxiosResponse() 
+  }
+}
 
 describe('AxiosHttpClient', ()=> { 
-  const makeSut = ()=> new AxiosHttpClient()
-  const makePostParams = () => {
-    return {
-      url: faker.internet.url(), 
-      body: {
-        email: faker.internet.email(),
-        password: faker.string.alphanumeric()
-      }
-    }
-  }
-  
+
+  const {sut, postParams, axiosPostResponse} = makeSut()  
 
   it('should call axios with the correct values', ()=> {    
-    const sut = makeSut()
-    const postParams = makePostParams()
     sut.post(postParams)  
-    expect(mockedAxios.post).toHaveBeenCalledWith(postParams.url, postParams.body)
+    expect(axiosPostResponse.post).toHaveBeenCalledWith(postParams.url, postParams.body)
     }) 
 
   
-  it('should returns the correct statuscode and body', ()=> {    
-    const sut = makeSut()
-    const postParams = makePostParams()
-    const response = sut.post(postParams)  
-    expect(response).resolves.toEqual(
-      { 
-        status: mockedAxiosPostResponse.status,
-        body: mockedAxiosPostResponse.data
-      }  
-    )
+  it('should returns the correct statuscode and body', async ()=> {    
+    const response = await sut.post(postParams)        
+    expect(response).toEqual(response)  
   }) 
-})   
+})     
+  

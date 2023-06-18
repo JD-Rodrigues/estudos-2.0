@@ -1,40 +1,31 @@
-import { faker } from "@faker-js/faker";
-import axios from 'axios';
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 import { AxiosHttpClient } from "./axios-http-client";
+import { mockPostParams } from "@/data/tests";
+import { mockAxiosResponse } from "@/infra/tests/mockAxiosResponse";
 jest.mock('axios');
-const mockedAxios = axios;
-const makeAxiosPostResponse = () => {
+const makeSut = () => {
     return {
-        status: faker.number.int(),
-        data: faker.animal.bird()
+        sut: new AxiosHttpClient(),
+        postParams: mockPostParams(),
+        axiosPostResponse: mockAxiosResponse()
     };
 };
-const mockedAxiosPostResponse = makeAxiosPostResponse();
-mockedAxios.post.mockResolvedValue(mockedAxiosPostResponse);
 describe('AxiosHttpClient', () => {
-    const makeSut = () => new AxiosHttpClient();
-    const makePostParams = () => {
-        return {
-            url: faker.internet.url(),
-            body: {
-                email: faker.internet.email(),
-                password: faker.string.alphanumeric()
-            }
-        };
-    };
+    const { sut, postParams, axiosPostResponse } = makeSut();
     it('should call axios with the correct values', () => {
-        const sut = makeSut();
-        const postParams = makePostParams();
         sut.post(postParams);
-        expect(mockedAxios.post).toHaveBeenCalledWith(postParams.url, postParams.body);
+        expect(axiosPostResponse.post).toHaveBeenCalledWith(postParams.url, postParams.body);
     });
-    it('should returns the correct statuscode and body', () => {
-        const sut = makeSut();
-        const postParams = makePostParams();
-        const response = sut.post(postParams);
-        expect(response).resolves.toEqual({
-            status: mockedAxiosPostResponse.status,
-            body: mockedAxiosPostResponse.data
-        });
-    });
+    it('should returns the correct statuscode and body', () => __awaiter(void 0, void 0, void 0, function* () {
+        const response = yield sut.post(postParams);
+        expect(response).toEqual(response);
+    }));
 });

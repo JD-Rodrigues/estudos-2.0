@@ -1,5 +1,4 @@
 import { HttpPostClient, HttpPostParams, HttpResponse } from "@/data/protocols/http";
-import { AccountModel } from "@/domain/models/accountModel";
 import axios from "axios";
 
 
