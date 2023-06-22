@@ -35,6 +35,9 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^6.1.1",
     "husky": "^8.0.3",
-    "lint-staged": "^13.2.1"
+    "lint-staged": "^13.2.1",
+    "webpack": "^5.88.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
   }
 }
