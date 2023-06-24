@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "webpack-dev-server --open",
     "tsc:watch": "tsc --watch",
     "test": "jest --passWithNoTests",
     "test:watch": "npm run test -- --watch",
@@ -29,6 +30,7 @@
   "devDependencies": {
     "@faker-js/faker": "^8.0.2",
     "@typescript-eslint/eslint-plugin": "^5.58.0",
+    "clean-webpack-plugin": "^4.0.0",
     "eslint": "^8.38.0",
     "eslint-config-standard-with-typescript": "^34.0.1",
     "eslint-plugin-import": "^2.27.5",
