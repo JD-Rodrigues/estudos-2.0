@@ -1,8 +1,11 @@
 import React from 'react'
+import styles from './login-styles.scss'
 
 const Login = () => {
   return(
-    <div className='login'></div>
+    <div className={styles.login}>
+      oi
+    </div>
   )
 }
 
