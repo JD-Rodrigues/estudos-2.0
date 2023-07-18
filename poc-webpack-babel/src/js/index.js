@@ -1,3 +1,5 @@
+import './../css/style.scss'
 const titulo = document.createElement('h1')
 titulo.innerHTML = "Olá, galera!"
-module.exports = document.querySelector('body').appendChild(titulo)
+titulo.classList.add('cor')
+document.querySelector('body').appendChild(titulo)
