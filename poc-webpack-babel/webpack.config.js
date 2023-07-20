@@ -2,6 +2,7 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
+
 module.exports = {
   mode: "development",
   entry: '/src/js/index.js',
@@ -23,15 +24,25 @@ module.exports = {
     rules: [
       {
         test: /\.(sa|sc|c)ss$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader' ]
+        use: [MiniCssExtractPlugin.loader,'css-loader', 'sass-loader' ]
       },
       {
-        test: /\.css$/i, 
+        test:/\.css$/i,
         use: [
           'style-loader',
           'css-loader'
         ]
-      }
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        }
+     }
     ]
   }
   
