@@ -41,6 +41,13 @@ module.exports = {
         options: {
           presets: ['@babel/preset-env']
         }
+     },
+     {
+      test: /\.(jpeg|jpg|png|webp|svg)$/,
+      loader: 'file-loader',
+      options: {
+        name: '[name].[ext]'
+      }
      }
     ]
   }
