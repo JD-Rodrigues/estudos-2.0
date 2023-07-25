@@ -2,10 +2,10 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 require('dotenv').config()
-const modeValue = process.env.NODE_ENV;
+
 
 module.exports = {
-  mode: modeValue,
+  mode: process.env.NODE_ENV,
   entry: '/src/js/index.js',
   devtool: 'inline-source-map',
   output: {
