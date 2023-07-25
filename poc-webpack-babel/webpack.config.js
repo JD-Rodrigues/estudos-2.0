@@ -1,15 +1,19 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const TerserPlugin = require('terser-webpack-plugin')
+require('dotenv').config()
+const modeValue = process.env.NODE_ENV;
 
 module.exports = {
-  mode: "production",
+  mode: modeValue,
   entry: '/src/js/index.js',
   devtool: 'inline-source-map',
   output: {
     filename: 'main.js',
     path: path.join(__dirname, 'dist')
+  },
+  optimization: {
+    minimize: process.env.NODE_ENV === 'production'
   },
   plugins: [
     new HtmlWebpackPlugin(
@@ -18,8 +22,7 @@ module.exports = {
         template: '/src/index.html',
       }
     ),
-    new MiniCssExtractPlugin(),
-    new TerserPlugin()
+    new MiniCssExtractPlugin()
   ],
   module: {
     rules: [
