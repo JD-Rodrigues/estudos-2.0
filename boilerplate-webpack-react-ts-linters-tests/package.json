@@ -48,5 +48,10 @@
     "src/**/*.{ts,tsx}": [
       "npm lint"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
   }
 }
