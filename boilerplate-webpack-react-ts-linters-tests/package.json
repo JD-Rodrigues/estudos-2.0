@@ -7,6 +7,7 @@
   "author": "",
   "license": "ISC",
   "scripts": {
+    "lint": "eslint src --ext ts,tsx --max-warnings=0",
     "check-format": "prettier --check .",
     "format": "prettier --write .",
     "prettier-log": "prettier -l .",
@@ -41,5 +42,10 @@
     "lint-staged": "^13.2.3",
     "prettier": "^3.0.0",
     "typescript": "^5.1.6"
+  },
+  "lint-staged" : {
+    "src/**/*.{ts,tsx}":[
+      "npm lint"
+    ]
   }
 }
