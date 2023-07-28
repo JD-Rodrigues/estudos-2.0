@@ -46,12 +46,12 @@
   },
   "lint-staged": {
     "src/**/*.{ts,tsx}": [
-      "npm lint"
+      "npm run lint"
     ]
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint"
+      "pre-commit": "lint-staged"
     }
   }
 }
