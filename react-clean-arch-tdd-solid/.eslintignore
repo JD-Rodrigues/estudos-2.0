@@ -1,0 +1,9 @@
+dist
+.jest
+src/main/assets/*
+yarn.lock
+.gitattributes
+.gitignore
+.prettierignore
+coverage
+/node_modules/
