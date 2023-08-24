@@ -6,10 +6,6 @@ import { ReactComponent as Envelope } from '@images/envelope.svg'
 import envelope from '@images/envelope.svg'
 import Instruction from './Instruction/index.tsx' 
 
-
- 
-
-
 const App: React.FC = () => {
   return (
     <>

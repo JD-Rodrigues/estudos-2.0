@@ -8,6 +8,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const EslintWebpackPlugin = require('eslint-webpack-plugin')
 const { dependencies } = require('../package.json')
 const path = require('path')
+
 const sharedLibsPaths = Object.keys(dependencies)
 
 const isDevelopment = process.env.MODE === 'development'

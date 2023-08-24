@@ -11,7 +11,7 @@
     "esModuleInterop": true,
     "allowImportingTsExtensions": true,
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "Node",
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
