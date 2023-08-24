@@ -8,7 +8,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const EslintWebpackPlugin = require('eslint-webpack-plugin')
 const { dependencies } = require('../package.json')
 const path = require('path')
-
 const sharedLibsPaths = Object.keys(dependencies)
 
 const isDevelopment = process.env.MODE === 'development'
@@ -30,8 +29,11 @@ module.exports = {
   },
   resolve: {
     alias: {
-      '@images': path.resolve(__dirname, '../src/presentation/assets/images')
-    }
+      '@images': path.resolve(__dirname, '../src/presentation/assets/images'),
+      '@data': path.resolve(__dirname, '../src/data'),
+      '@domain': path.resolve(__dirname, '../src/domain'),
+      '@infra': path.resolve(__dirname, '../src/infra')
+    },
   },
   optimization: {
     splitChunks: {
