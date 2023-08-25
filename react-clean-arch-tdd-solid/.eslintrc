@@ -16,10 +16,12 @@
     "import/resolver": {
       "alias": {
         "map": [
-            [ "@images", "./src/presentation/assets/images" ]
+          ["@images", "./src/presentation/assets/images"],
+          ["@data", "./src/data"]
         ]
       }
-    },
+    }
+  },
   "extends": [
     "standard",
     "eslint:recommended",
@@ -102,5 +104,4 @@
       ]
     }
   ]
-}
 }

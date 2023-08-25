@@ -34,7 +34,7 @@ module.exports = {
       '@data': path.resolve(__dirname, '../src/data'),
       '@domain': path.resolve(__dirname, '../src/domain'),
       '@infra': path.resolve(__dirname, '../src/infra')
-    },
+    }
   },
   optimization: {
     splitChunks: {
