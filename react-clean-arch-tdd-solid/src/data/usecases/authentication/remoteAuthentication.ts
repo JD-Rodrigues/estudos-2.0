@@ -1,11 +1,13 @@
-import { HttpPostClient } from 'data/protocols/http'
+import { HttpPostClient, StatusCode } from '@data/protocols/http/index.ts'
 import {
   Authentication,
   AuthenticationParams
-} from '@/domain/usercases/authentication'
-import { InvalidCredentialError, UnexpectedError } from '@/domain/errors'
-import { StatusCode } from '@/data/protocols/http'
-import { AccountModel } from '@/domain/models/accountModel'
+} from '@domain/usercases/authentication.ts'
+import {
+  InvalidCredentialError,
+  UnexpectedError
+} from '@domain/errors/index.ts'
+import { AccountModel } from '@domain/models/accountModel.ts'
 
 export class RemoteAuthentication implements Authentication {
   constructor(
@@ -14,7 +16,10 @@ export class RemoteAuthentication implements Authentication {
       AuthenticationParams,
       AccountModel
     >
-  ) {}
+  ) {
+    this.url = url
+    this.httpPostClient = httpPostClient
+  }
 
   async auth(params: AuthenticationParams): Promise<AccountModel> {
     const res = await this.httpPostClient.post({
@@ -26,7 +31,7 @@ export class RemoteAuthentication implements Authentication {
       case StatusCode.unauthorized:
         throw new InvalidCredentialError()
       case StatusCode.ok:
-        return res.body
+        return res.body!
       default:
         throw new UnexpectedError()
     }

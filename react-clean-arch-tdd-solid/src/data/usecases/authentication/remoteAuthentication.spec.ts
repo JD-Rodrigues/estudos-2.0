@@ -1,10 +1,17 @@
-import { RemoteAuthentication } from './remoteAuthentication'
-import { HttpPostClientSpy } from '@/data/tests'
-import { makeAccountModel, makePostBody } from '@/data/tests'
-import { StatusCode } from '@/data/protocols/http'
-import { InvalidCredentialError, UnexpectedError } from '@/domain/errors'
-import { AuthenticationParams } from '@/domain/usercases/authentication'
-import { AccountModel } from '@/domain/models/accountModel'
+// eslint-disable-next-line import/no-unused-modules
+import { RemoteAuthentication } from '@data/usecases/authentication/remoteAuthentication.ts'
+import {
+  makeAccountModel,
+  makePostBody,
+  HttpPostClientSpy
+} from '@data/tests/index.ts'
+import { StatusCode } from '@data/protocols/http/index.ts'
+import {
+  InvalidCredentialError,
+  UnexpectedError
+} from '@domain/errors/index.ts'
+import { AuthenticationParams } from '@domain/usercases/authentication.ts'
+import { AccountModel } from '@domain/models/accountModel.ts'
 
 const makeSut = (url = 'any_url') => {
   const httpPostClientSpy = new HttpPostClientSpy<
@@ -72,7 +79,7 @@ describe('RemoteAuthentication', () => {
     expect(promise).rejects.toThrow(new UnexpectedError())
   })
 
-  it('should return a random uuid if HttpPostClient returns 200.', () => {
+  it('should return a random uuid if HttpPostClient returns 200.', async () => {
     const { sut, httpPostClientSpy } = makeSut()
     const responseBody = makeAccountModel()
     httpPostClientSpy.res = {

@@ -1,9 +1,9 @@
-import { faker } from '@faker-js/faker'
+// eslint-disable-next-line import/no-unused-modules
 import axios from 'axios'
 import { AxiosHttpClient } from './axios-http-client'
-import { mockPostParams } from '@/data/tests'
-import { mockAxiosResponse } from '@/infra/tests/mockAxiosResponse'
-import { HttpPostParams } from '@/data/protocols/http'
+import { mockPostParams } from '@data/tests/index.ts'
+import { mockAxiosResponse } from '@infra/tests/mockAxiosResponse.ts'
+import { HttpPostParams } from '@data/protocols/http/index.ts'
 
 jest.mock('axios')
 

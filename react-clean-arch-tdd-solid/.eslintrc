@@ -17,7 +17,10 @@
       "alias": {
         "map": [
           ["@images", "./src/presentation/assets/images"],
-          ["@data", "./src/data"]
+          ["@data", "./src/data"],
+          ["@infra", "./src/infra"],
+          ["@domain", "./src/domain"],
+          ["@presentation", "./src/presentation"]
         ]
       }
     }
