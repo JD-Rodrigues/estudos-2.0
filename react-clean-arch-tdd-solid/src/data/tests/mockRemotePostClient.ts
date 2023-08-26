@@ -1,8 +1,8 @@
 import {
-  HttpPostClient,
-  HttpPostParams,
   HttpResponse,
-  StatusCode
+  StatusCode,
+  HttpPostClient,
+  HttpPostParams
 } from '@data/protocols/http/index.ts'
 
 export class HttpPostClientSpy<T, R> implements HttpPostClient<T, R> {

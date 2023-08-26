@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-unused-modules
-import { RemoteAuthentication } from '@data/usecases/authentication/remoteAuthentication.ts'
+import RemoteAuthentication from '@data/usecases/authentication/remoteAuthentication.ts'
 import {
   makeAccountModel,
   makePostBody,
@@ -43,40 +43,41 @@ describe('RemoteAuthentication', () => {
     expect(httpPostClientSpy.body).toEqual(postBody)
   })
 
-  it('should throw an "UnexpectedError" if HttpPostClient returns 204.', () => {
+  it('should throw an "UnexpectedError" if HttpPostClient returns 204.', async () => {
     const { sut, httpPostClientSpy } = makeSut()
     httpPostClientSpy.res = {
       status: StatusCode.noContent
     }
+
     const promise = sut.auth(postBody)
-    expect(promise).rejects.toThrow(new UnexpectedError())
+    await expect(promise).rejects.toThrow(new UnexpectedError())
   })
 
-  it('should throw an "UnexpectedError" if HttpPostClient returns 400.', () => {
+  it('should throw an "UnexpectedError" if HttpPostClient returns 400.', async () => {
     const { sut, httpPostClientSpy } = makeSut()
     httpPostClientSpy.res = {
       status: StatusCode.badRequest
     }
     const promise = sut.auth(postBody)
-    expect(promise).rejects.toThrow(new UnexpectedError())
+    await expect(promise).rejects.toThrow(new UnexpectedError())
   })
 
-  it('should throw an "InvalidCredentialError" if HttpPostClient returns 401.', () => {
+  it('should throw an "InvalidCredentialError" if HttpPostClient returns 401.', async () => {
     const { sut, httpPostClientSpy } = makeSut()
     httpPostClientSpy.res = {
       status: StatusCode.unauthorized
     }
     const promise = sut.auth(postBody)
-    expect(promise).rejects.toThrow(new InvalidCredentialError())
+    await expect(promise).rejects.toThrow(new InvalidCredentialError())
   })
 
-  it('should throw an "UnexpectedError" if HttpPostClient returns 404.', () => {
+  it('should throw an "UnexpectedError" if HttpPostClient returns 404.', async () => {
     const { sut, httpPostClientSpy } = makeSut()
     httpPostClientSpy.res = {
       status: StatusCode.notFound
     }
     const promise = sut.auth(postBody)
-    expect(promise).rejects.toThrow(new UnexpectedError())
+    await expect(promise).rejects.toThrow(new UnexpectedError())
   })
 
   it('should return a random uuid if HttpPostClient returns 200.', async () => {
@@ -87,6 +88,6 @@ describe('RemoteAuthentication', () => {
       body: responseBody
     }
     const promise = sut.auth(postBody)
-    expect(promise).resolves.toEqual(responseBody)
+    await expect(promise).resolves.toEqual(responseBody)
   })
 })

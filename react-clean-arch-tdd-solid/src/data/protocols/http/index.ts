@@ -1,3 +1,2 @@
-// eslint-disable-next-line import/no-unused-modules
-export * from './httpPostClient.ts'
-export * from './httpResponse'
+export { HttpPostClient, HttpPostParams } from './httpPostClient'
+export { HttpResponse, StatusCode } from './httpResponse'

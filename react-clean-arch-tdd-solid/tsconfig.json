@@ -16,7 +16,6 @@
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "resolveJsonModule": true,
-    "isolatedModules": true,
     "jsxImportSource": "react",
     "removeComments": true,
     "sourceMap": true,

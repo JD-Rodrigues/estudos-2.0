@@ -1,9 +1,12 @@
 import Login from './pages/login/index.tsx'
+import styles from './App-styles.module.scss'
 
-const App: React.FC = () => {
+const App = () => {
   return (
     <>
-      <p className="teste">{`Olá, pessoal!! O número da porta é este: ${process.env.PORT}.`}</p>
+      <p
+        className={styles.teste}
+      >{`Olá, pessoal!! O número da porta é este: ${process.env.PORT}.`}</p>
       <Login />
     </>
   )

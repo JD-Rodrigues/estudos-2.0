@@ -1,8 +1,5 @@
-import {
-  HttpPostClient,
-  HttpPostParams,
-  HttpResponse
-} from '@data/protocols/http/index.ts'
+import { HttpResponse } from '@data/protocols/http/httpResponse.ts'
+import { HttpPostClient, HttpPostParams } from '@data/protocols/http/index.ts'
 import axios from 'axios'
 
 export class AxiosHttpClient<T, R> implements HttpPostClient<T, R> {

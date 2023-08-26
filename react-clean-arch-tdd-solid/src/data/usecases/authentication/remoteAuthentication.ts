@@ -9,7 +9,7 @@ import {
 } from '@domain/errors/index.ts'
 import { AccountModel } from '@domain/models/accountModel.ts'
 
-export class RemoteAuthentication implements Authentication {
+class RemoteAuthentication implements Authentication {
   constructor(
     private readonly url: string,
     private readonly httpPostClient: HttpPostClient<
@@ -37,3 +37,5 @@ export class RemoteAuthentication implements Authentication {
     }
   }
 }
+
+export default RemoteAuthentication
