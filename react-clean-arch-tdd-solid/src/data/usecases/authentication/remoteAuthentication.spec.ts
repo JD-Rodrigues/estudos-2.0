@@ -10,10 +10,15 @@ import {
   InvalidCredentialError,
   UnexpectedError
 } from '@domain/errors/index.ts'
-import { AuthenticationParams } from '@domain/usercases/authentication.ts'
-import { AccountModel } from '@domain/models/accountModel.ts'
+import { type AuthenticationParams } from '@domain/usercases/authentication.ts'
+import { type AccountModel } from '@domain/models/accountModel.ts'
 
-const makeSut = (url = 'any_url') => {
+interface MakeSutReturn {
+  sut: RemoteAuthentication
+  httpPostClientSpy: HttpPostClientSpy<AuthenticationParams, AccountModel>
+}
+
+const makeSut = (url = 'any_url'): MakeSutReturn => {
   const httpPostClientSpy = new HttpPostClientSpy<
     AuthenticationParams,
     AccountModel
@@ -30,16 +35,16 @@ const makeSut = (url = 'any_url') => {
 
 describe('RemoteAuthentication', () => {
   const postBody = makePostBody()
-  it('should call httpPostClient.post() with the correct url', () => {
+  it('should call httpPostClient.post() with the correct url', async () => {
     const url = 'other_url'
     const { sut, httpPostClientSpy } = makeSut(url)
-    sut.auth(postBody)
+    await sut.auth(postBody)
     expect(httpPostClientSpy.url).toBe(url)
   })
 
-  it('should call httpPostClient.post() with the correct body', () => {
+  it('should call httpPostClient.post() with the correct body', async () => {
     const { sut, httpPostClientSpy } = makeSut()
-    sut.auth(postBody)
+    await sut.auth(postBody)
     expect(httpPostClientSpy.body).toEqual(postBody)
   })
 

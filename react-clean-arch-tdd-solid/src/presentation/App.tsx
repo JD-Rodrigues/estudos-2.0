@@ -1,7 +1,7 @@
 import Login from './pages/login/index.tsx'
 import styles from './App-styles.module.scss'
 
-const App = () => {
+const App = (): JSX.Element => {
   return (
     <>
       <p

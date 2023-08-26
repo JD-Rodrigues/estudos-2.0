@@ -2,6 +2,8 @@
 import { createRoot } from 'react-dom/client'
 import App from '../presentation/App.tsx'
 
-const root = createRoot(document.querySelector('#root')!)
+const rootDiv = document.querySelector('#root') as HTMLDivElement
+
+const root = createRoot(rootDiv)
 
 root.render(<App />)

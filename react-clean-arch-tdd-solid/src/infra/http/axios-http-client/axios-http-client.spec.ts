@@ -1,13 +1,13 @@
 // eslint-disable-next-line import/no-unused-modules
-import axios from 'axios'
+import type axios from 'axios'
 import { AxiosHttpClient } from './axios-http-client'
 import { mockPostParams } from '@data/tests/index.ts'
 import { mockAxiosResponse } from '@infra/tests/mockAxiosResponse.ts'
-import { HttpPostParams } from '@data/protocols/http/index.ts'
+import { type HttpPostParams } from '@data/protocols/http/index.ts'
 
 jest.mock('axios')
 
-type SutTypes = {
+interface SutTypes {
   sut: AxiosHttpClient<any, any>
   postParams: HttpPostParams<any>
   axiosPostResponse: jest.Mocked<typeof axios>
@@ -24,8 +24,8 @@ const makeSut = (): SutTypes => {
 describe('AxiosHttpClient', () => {
   const { sut, postParams, axiosPostResponse } = makeSut()
 
-  it('should call axios with the correct values', () => {
-    sut.post(postParams)
+  it('should call axios with the correct values', async () => {
+    await sut.post(postParams)
     expect(axiosPostResponse.post).toHaveBeenCalledWith(
       postParams.url,
       postParams.body

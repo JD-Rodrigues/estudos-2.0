@@ -105,6 +105,17 @@
         "plugin:jest/recommended",
         "plugin:jest/style"
       ]
+    },
+    {
+      "files": ["*.ts", "*.tsx"],
+      "extends": "standard-with-typescript",
+      "parserOptions": {
+        "project": "./tsconfig.json"
+      },
+      "rules": {
+        "@typescript-eslint/space-before-function-paren": "off",
+        "@typescript-eslint/indent": "off"
+      }
     }
   ]
 }

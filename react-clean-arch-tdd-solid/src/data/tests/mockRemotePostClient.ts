@@ -1,8 +1,8 @@
 import {
-  HttpResponse,
+  type HttpResponse,
   StatusCode,
-  HttpPostClient,
-  HttpPostParams
+  type HttpPostClient,
+  type HttpPostParams
 } from '@data/protocols/http/index.ts'
 
 export class HttpPostClientSpy<T, R> implements HttpPostClient<T, R> {
@@ -17,6 +17,6 @@ export class HttpPostClientSpy<T, R> implements HttpPostClient<T, R> {
     this.url = params.url
     this.body = params.body
 
-    return Promise.resolve(this.res)
+    return await Promise.resolve(this.res)
   }
 }

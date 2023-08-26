@@ -1,13 +1,13 @@
-import { HttpPostClient, StatusCode } from '@data/protocols/http/index.ts'
+import { type HttpPostClient, StatusCode } from '@data/protocols/http/index.ts'
 import {
-  Authentication,
-  AuthenticationParams
+  type Authentication,
+  type AuthenticationParams
 } from '@domain/usercases/authentication.ts'
 import {
   InvalidCredentialError,
   UnexpectedError
 } from '@domain/errors/index.ts'
-import { AccountModel } from '@domain/models/accountModel.ts'
+import { type AccountModel } from '@domain/models/accountModel.ts'
 
 class RemoteAuthentication implements Authentication {
   constructor(
@@ -31,7 +31,10 @@ class RemoteAuthentication implements Authentication {
       case StatusCode.unauthorized:
         throw new InvalidCredentialError()
       case StatusCode.ok:
-        return res.body!
+        if (res.body !== null && res.body !== undefined) {
+          return res.body
+        }
+        throw new UnexpectedError()
       default:
         throw new UnexpectedError()
     }

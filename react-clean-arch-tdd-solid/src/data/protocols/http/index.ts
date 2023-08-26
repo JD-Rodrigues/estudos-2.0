@@ -1,2 +1,2 @@
-export { HttpPostClient, HttpPostParams } from './httpPostClient'
-export { HttpResponse, StatusCode } from './httpResponse'
+export { type HttpPostClient, type HttpPostParams } from './httpPostClient'
+export { type HttpResponse, StatusCode } from './httpResponse'
