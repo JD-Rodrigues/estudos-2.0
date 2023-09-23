@@ -1,0 +1,19 @@
+SELECT
+	*
+FROM
+	users
+WHERE
+	id
+BETWEEN
+	7 AND 10
+;
+
+SELECT
+	*
+FROM
+	users
+WHERE
+	created_at
+BETWEEN
+	"2023-09-14 21:16:30" AND "2023-09-20"
+;
