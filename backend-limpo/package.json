@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@types/node": "^20.8.2"
+    "@types/node": "^20.8.2",
+    "mysql": "^2.18.1"
   }
 }
