@@ -11,6 +11,6 @@
   "license": "ISC",
   "dependencies": {
     "@types/node": "^20.8.2",
-    "mysql": "^2.18.1"
+    "mysql2": "^3.6.1"
   }
 }
