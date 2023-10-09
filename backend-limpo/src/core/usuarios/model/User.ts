@@ -1,8 +1,11 @@
-export default interface User {
-    id?: number
+import { FieldPacket, OkPacket, ProcedureCallPacket, ResultSetHeader, RowDataPacket } from "mysql2"
+
+type User = ([OkPacket | RowDataPacket[] | ResultSetHeader[] | RowDataPacket[][] | OkPacket[] | ProcedureCallPacket, FieldPacket[]] | undefined)
+
+export type NewUser = {
     name: string
     email: string
     password: string
-    createdAt?: Date
-    updatedAt?: Date
 }
+
+export default User;

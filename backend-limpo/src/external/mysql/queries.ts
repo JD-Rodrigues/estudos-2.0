@@ -10,7 +10,7 @@ export const getUsers = async ()=> {
     return res   
 }
 
-export const registerUser = async ({name, email, password}:any)=> {
+export const registerNewUser = async ({name, email, password}:any)=> {
     try {
         const conn = await connection()
         const sql = 'INSERT INTO users (name, email, password) VALUES (?, ?, ?)';
@@ -19,9 +19,22 @@ export const registerUser = async ({name, email, password}:any)=> {
         const res = await conn.query(sql, values);
     } catch (error) {
         console.log(error)
-    }
+    }  
     
+}
+
+export const findUserByEmail = async (email:string)=> {
+    try {
+        const conn = await connection()
+        const sql = 'SELECT * FROM users WHERE email = ?';
+        const value = email;
     
+        const res = await conn.query(sql, value);
+
+        return res
+    } catch (error) {
+        console.log(error)
+    }      
 }
 
 // registerUser(
@@ -32,3 +45,4 @@ export const registerUser = async ({name, email, password}:any)=> {
 //     }
 // ).then(console.log)
 
+// findUserByEmail('contato@do.com').then(data => console.log(data![0]))

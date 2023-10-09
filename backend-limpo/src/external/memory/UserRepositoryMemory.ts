@@ -1,12 +1,21 @@
-import User from "src/core/usuarios/model/User";
+import User, { NewUser } from "src/core/usuarios/model/User";
 import UserRepository from "src/core/usuarios/service/UserRepository";
+import { findUserByEmail, registerNewUser } from "../mysql/queries";
+
+
+
 
 export default class UserRepositoryMemory implements UserRepository {
-    findByEmail(email: string): Promise<User | null> {
-        throw new Error("Method not implemented.");
+    async findByEmail(email: string): Promise<User> {
+        try {
+            const user: User = await findUserByEmail(email)
+            return user
+        } catch (error) {
+            console.log(error)
+        }
     }
-    create(user: User): Promise<void> {
-        throw new Error("Method not implemented.");
+    async create(user: NewUser): Promise<void> {
+        registerNewUser(user)
     }
 
 }
