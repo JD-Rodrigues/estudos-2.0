@@ -15,12 +15,11 @@ export default class RegisterUser implements Usecase<NewUser, void> {
         if(Object.keys(userExists![0]).length > 0) {
             console.log('Este usuário já está cadastrado')
             
-            return             
-            
+            return            
         }
 
         await this.repository.create({name, email, password})
 
-        console.log('Usuário cadastrado:' + data)
+        
     }
 }

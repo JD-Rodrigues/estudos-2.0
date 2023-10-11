@@ -5,7 +5,7 @@ import { findUserByEmail, registerNewUser } from "../mysql/queries";
 
 
 
-export default class UserRepositoryMemory implements UserRepository {
+class UserRepositoryMemory implements UserRepository {
     async findByEmail(email: string): Promise<User> {
         try {
             const user: User = await findUserByEmail(email)
@@ -19,3 +19,5 @@ export default class UserRepositoryMemory implements UserRepository {
     }
 
 }
+
+export default UserRepositoryMemory
