@@ -1,19 +1,26 @@
 import RegisterUser from "../core/usuarios/service/RegisterUser";
-import { NewUser } from "src/core/usuarios/model/User";
+import { Express, Request, Response } from "express";
+
 
 
 export class UserRepositoryController {
-    case: RegisterUser;
-    body:NewUser
-    constructor(usecase: RegisterUser, data:NewUser){
-        this.case = usecase
-        this.body = data
-    }
+    server: Express;
+    usecase: RegisterUser
+    constructor(server:Express, usecase:RegisterUser){
+        this.server = server
+        this.usecase = usecase
 
-    store = ()=> {
-        this.case.execute(this.body)
+        this.server.post('/costumers',async(req:Request, res: Response)=>{
+            const body = req.body
+          
+            try {
+                await this.usecase.execute(req.body)
+                res.send(req.body)
+            } catch (error) {
+              res.send(error)
+            }             
+        } )
     }
-
 }
 
 

@@ -1,11 +1,8 @@
-import { FieldPacket, OkPacket, ProcedureCallPacket, ResultSetHeader, RowDataPacket } from "mysql2"
-
-type User = ([OkPacket | RowDataPacket[] | ResultSetHeader[] | RowDataPacket[][] | OkPacket[] | ProcedureCallPacket, FieldPacket[]] | undefined)
-
-export type NewUser = {
+export type User = {
+    id?: number
     name: string
     email: string
     password: string
+    createdAt?:string
+    updatedAt?:string
 }
-
-export default User;
