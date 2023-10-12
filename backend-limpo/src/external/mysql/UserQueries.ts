@@ -11,30 +11,12 @@ export const getUsers = async ()=> {
 }
 
 export const registerNewUser = async ({name, email, password}:any)=> {
-    try {
-        const conn = await connection()
-        const sql = 'INSERT INTO users (name, email, password) VALUES (?, ?, ?)';
-        const values = [name, email, password];
     
-        const res = await conn.query(sql, values);
-    } catch (error) {
-        console.log(error)
-    }  
     
 }
 
 export const findUserByEmail = async (email:string)=> {
-    try {
-        const conn = await connection()
-        const sql = 'SELECT * FROM users WHERE email = ?';
-        const value = email;
-    
-        const res = await conn.query(sql, value);
-
-        return res
-    } catch (error) {
-        console.log(error)
-    }      
+      
 }
 
 // registerUser(
