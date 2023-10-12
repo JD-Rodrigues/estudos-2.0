@@ -3,10 +3,10 @@ import { Express, Request, Response } from "express";
 
 
 
-export class UserRepositoryController {
-    server: Express;
-    usecase: RegisterUser
-    constructor(server:Express, usecase:RegisterUser){
+export class RegisterUserController {
+    // server: Express;
+    // usecase: RegisterUser
+    constructor(private readonly server:Express, private readonly usecase:RegisterUser){
         this.server = server
         this.usecase = usecase
 
