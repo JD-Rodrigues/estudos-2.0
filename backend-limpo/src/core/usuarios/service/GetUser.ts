@@ -8,10 +8,6 @@ export default class GetUser implements Usecase<string, MySQLResponse> {
     async execute(email: string): Promise<MySQLResponse> {
         try {
             const user = await this.repository.findByEmail(email)
-            if(Object.keys(user![0]).length === 0) {
-                console.log('Este usuário não existe!')
-                return
-            }
 
             return user
         } catch (error) {

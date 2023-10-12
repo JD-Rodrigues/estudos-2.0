@@ -1,7 +1,9 @@
 import express, { Request, Response } from 'express';
-import { UserRepositoryController } from './adapters/UserRepositoryController';
 import RegisterUser from './core/usuarios/service/RegisterUser';
 import UserRepositoryMySQL from './external/mysql/UserRepositoryMySQL';
+import { RegisterUserController } from './adapters/RegisterUserController';
+import { GetUserController } from './adapters/GetUserController';
+import GetUser from './core/usuarios/service/GetUser';
 
 
 
@@ -12,7 +14,9 @@ app.use(express.json());
 
 const userRepositoryMySQL = new UserRepositoryMySQL()
 const registerUser = new RegisterUser(userRepositoryMySQL)
-const userRepositoryController = new UserRepositoryController(app, registerUser)
+const getUser = new GetUser(userRepositoryMySQL)
+const registerUserController = new RegisterUserController(app, registerUser)
+const getUserController = new GetUserController(app, getUser)
 
 app.listen(3002)
 
