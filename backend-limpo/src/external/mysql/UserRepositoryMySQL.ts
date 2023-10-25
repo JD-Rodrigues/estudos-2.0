@@ -1,6 +1,5 @@
 import { User } from "src/core/usuarios/model/User";
 import UserRepository from "src/core/usuarios/service/UserRepository";
-import { findUserByEmail, registerNewUser } from "../mysql/UserQueries";
 import MySQLResponse from "../mysql/MySQLTypes";
 import connection from "../../dbconfig";
 
