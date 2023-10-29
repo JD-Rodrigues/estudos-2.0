@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  web: 
+    image: nginx:alpine
+    restart: always
+    ports:
+      - 3000:80
+    volumes:
+      - ./docker/nginx:/etc/nginx/conf.d/
+      - ./:/var/www
+    networks:
+      - main-net
+
+  php:
+    image: php:8.2.12-fpm
+    volumes:
+      - ./:/var/www
+    networks:
+      - main-net
+  
+networks:
+  main-net:
+    driver: bridge
+  
