@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      dockerfile: Dockerfile
+      context: .
+      args:
+        user: Domingos_Rodrigues
+        uid: 26021989
+    image: domingosrodriguesdev/app-laravel
+    working_dir: /var/www/
+    volumes:
+      - ./:/var/www/
+    restart: unless-stopped
+    networks: 
+      - docker-laravel
+
+  nginx:
+    image: nginx
+    restart: always
+    ports:
+      - 8000:80
+    volumes:
+      - ./:/var/www/
+      - ./docker/nginx:/etc/nginx/conf.d/
+    networks:
+      - docker-laravel
+    
+  redis: 
+    image: redis
+    networks:
+      - docker-laravel
+
+  mysql:
+    image: mysql:latest
+    restart: always
+    volumes:
+      - ./docker/mysql:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE}
+      USERNAME: ${DB_USERNAME}
+      PASSWORD: ${DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+    networks:
+      - docker-laravel
+
+networks:
+  docker-laravel:
+    driver: bridge
