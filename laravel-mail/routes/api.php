@@ -3,6 +3,7 @@
 use App\Http\Controllers\ContactController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Password;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,16 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('/form', [ContactController::class, 'store']);
+Route::post('/forgot-password', function (Request $request) {
+    $request->validate(['email' => 'required|email']);
+ 
+    try {
+        $status = Password::sendResetLink(
+            $request->only('email')
+        );
+     
+        return response($status);
+    } catch (\Throwable $th) {
+        throw $th;
+    }
+})->name('password.reset');
