@@ -31,4 +31,9 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'url' => [
+        'reset_password' => 'http://localhost.com:5500/forgot_password.html',
+    ],
+    
+
 ];
