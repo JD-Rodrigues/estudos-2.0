@@ -4,6 +4,11 @@ use App\Http\Controllers\ContactController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Password;
+use App\Models\User;
+use Illuminate\Auth\Events\PasswordReset;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,8 +21,20 @@ use Illuminate\Support\Facades\Password;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::post('/user', function(Request $request) {
+    $request->validate([
+        'name'=>'required',
+        'email' => 'required|email',
+        'password' => 'required|min:8',
+    ]);
+
+    try {
+        return User::create($request->only('name','email','password'));
+
+    } catch (\Throwable $th) {
+        throw $th;
+    }
+ 
 });
 
 Route::post('/form', [ContactController::class, 'store']);
@@ -34,3 +51,28 @@ Route::post('/forgot-password', function (Request $request) {
         throw $th;
     }
 })->name('password.reset');
+
+Route::post('/reset-password', function (Request $request) {
+    $request->validate([
+        'token' => 'required',
+        'email' => 'required|email',
+        'password' => 'required|min:8|confirmed',
+    ]);
+ 
+    $status = Password::reset(
+        $request->only('email', 'password', 'password_confirmation', 'token'),
+        function (User $user, string $password) {
+            $user->forceFill([
+                'password' => bcrypt($password)
+            ])->setRememberToken(Str::random(60));
+            
+            $user->save();
+ 
+            event(new PasswordReset($user));
+        }
+    );
+    // dd($status);
+    return $status === Password::PASSWORD_RESET
+                ? 'deu certo!'
+                : $status;
+})->middleware('guest')->name('password.update');
