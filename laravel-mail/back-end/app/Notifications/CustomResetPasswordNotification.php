@@ -35,12 +35,10 @@ class CustomResetPasswordNotification extends Notification
      */
     public function toMail(object $notifiable): MailMessage
     {
-        $url = url(config('services.url.reset_password'), [
-            'token' => $this->token,
-            'email' => $notifiable->getEmailForPasswordReset(),
-        ]);
+        $url = config('services.url.reset_password')."/{$this->token}";
 
         return (new MailMessage)
+                    ->subject('Redefinição de senha - Connect Courses')
                     ->line('The introduction to the notification.')
                     ->action('Notification Action', $url)
                     ->line('Thank you for using our application!');
