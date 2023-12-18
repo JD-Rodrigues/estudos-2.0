@@ -32,7 +32,7 @@ return [
     ],
 
     'url' => [
-        'reset_password' => 'http://localhost.com:5500/forgot_password.html',
+        'reset_password' => 'https://laravel-mail-frontend.vercel.app/forgot_password.html',
     ],
     
 
