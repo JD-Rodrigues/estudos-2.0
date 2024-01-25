@@ -1,0 +1,28 @@
+.menu {
+    display: flex;
+    justify-content: center;
+}
+
+.menu-links {
+    list-style-type:none;
+    display: flex;
+    column-gap: 50px;
+}
+
+.dark-mode {
+    background-color: #121212;
+    color: whitesmoke;
+}
+
+.dark-light-button {
+    position: absolute;
+    top:20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.dark-mode-links {
+    color:gold;
+}
