@@ -20,7 +20,7 @@ class SiteController extends Controller
   
               [ 
                 'image' => 'https://i.pravatar.cc/150?img='.rand(0,50), 
-                'nome' => 'Bonieky', 
+                'nome' => 'Marilzo', 
                 'birth' => '10/11/1933', 
                 'idade' => 90],
   
