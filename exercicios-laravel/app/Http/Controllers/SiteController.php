@@ -31,9 +31,9 @@ class SiteController extends Controller
                 'idade' => 2]
         ];
 
-        $dados['pessoas'] = $pessoas;
+        $data['people'] = $pessoas;
     
-        return view('bemvindo', $dados);
+        return view('bemvindo', $data);
     }
 
 
