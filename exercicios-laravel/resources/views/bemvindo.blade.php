@@ -35,15 +35,15 @@
                     {{$person['idade']}}
                 @endslot
             @endcomponent --}}
-            @include(
-                'components.personCard', 
-                [ 
-                    'idade'=> $person['idade'],
-                    'image'=> $person['image'],
-                    'nasc'=> $person['birth'],
-                    'nome'=> $person['nome']
-                ]
-            )
+
+            {{-- @include('components.personCard', $person) --}}
+
+            <x-personCard 
+                :image="$person['image']" 
+                :nome="$person['nome']" 
+                :birth="$person['birth']" 
+                :idade="$person['idade']"
+            />
         @endforeach
     </body>
 </html>

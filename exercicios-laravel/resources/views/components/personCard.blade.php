@@ -44,7 +44,7 @@
             >
                 <strong>Nome: </strong>{{$nome}}
             </h3>
-            <p><strong>Data de nascimento: </strong>{{$nasc}}</p>
+            <p><strong>Data de nascimento: </strong>{{$birth}}</p>
             <small><strong>Idade: </strong>{{$idade}}</small>
         </article>
 </html>
