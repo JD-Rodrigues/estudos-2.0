@@ -21,7 +21,7 @@
             column-gap: 10px;
         ">
         @foreach($people as $person) 
-            @component('components.personCard')
+            {{-- @component('components.personCard')
                 @slot('image')
                     {{$person['image']}}
                 @endslot
@@ -34,7 +34,16 @@
                 @slot('idade')
                     {{$person['idade']}}
                 @endslot
-            @endcomponent
+            @endcomponent --}}
+            @include(
+                'components.personCard', 
+                [ 
+                    'idade'=> $person['idade'],
+                    'image'=> $person['image'],
+                    'nasc'=> $person['birth'],
+                    'nome'=> $person['nome']
+                ]
+            )
         @endforeach
     </body>
 </html>
