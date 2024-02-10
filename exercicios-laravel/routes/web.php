@@ -19,3 +19,4 @@ Route::get('/', function () {
 });
 
 Route::get('/people', [SiteController::class, 'index']);
+Route::get('/pagina2', [SiteController::class, 'exibePagina2']);
