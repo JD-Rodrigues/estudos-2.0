@@ -51,4 +51,8 @@ class SiteController extends Controller
 
         return view('exercise', $dados);
     }
+
+    public function exibePagina2() {
+      return view('pagina2');
+    }
 }
