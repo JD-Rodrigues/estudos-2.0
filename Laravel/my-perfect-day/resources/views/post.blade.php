@@ -41,6 +41,11 @@
         .post-content {
             line-height: 1.6;
         }
+        button {
+            width: 100px;
+            padding:10px;
+            margin-left: 250px;
+        }
     </style>
 </head>
 <body>
@@ -58,6 +63,9 @@
             </div>
         </article>
     </div>
+    @can('view', $post)
+        <button>Remover</button>
+    @endcan
 </body>
 </html>
 
