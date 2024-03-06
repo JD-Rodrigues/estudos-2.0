@@ -11,7 +11,7 @@ class PostController extends Controller
 {
   
     
-    public function view(Request $request) {
+    public function view(Request $request, Post $post) {
 
         auth()->loginUsingId(1);
 
@@ -37,8 +37,27 @@ class PostController extends Controller
         //     abort(403);
         // }
 
+        // if(Gate::allows('view', $post)){
+        //     return view('post',['post' => Post::class]);
+        // }else {
+        //     abort(403);
+        // }
+
+        // if(Gate::authorize('view', $post)){
+        //     return view('post',['post' => Post::class]);
+        // }
+
+        // if(!Gate::allows('view', $post)){
+        //     abort(403);
+        // }
+
         
-        return view('post',['post' => Post::class]);
+        // return view('post',['post' => Post::class]);
         
+        // if(Gate::allows('view', $post)){
+        //     return view('post',['post' => Post::class]);
+        // }else {
+        //     abort(403);
+        // }
     }
 }
