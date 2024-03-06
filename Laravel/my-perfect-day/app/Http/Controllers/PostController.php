@@ -22,17 +22,23 @@ class PostController extends Controller
         
 
         // if($this->authorize('view', Post::class)){
-        //     return view('post');
+        //     return view('post',['post' => Post::class]);
         // }
         
         // if($request->user()->can('view', Post::class)){
-        //     return view('post');
+        //     return view('post',['post' => Post::class]);
         // }else{
         //     abort(403);
         // }
 
-        return view('post',['post' => Post::class]);
+        // if(auth()->user()->can('view', Post::class)){
+        //     return view('post',['post' => Post::class]);
+        // }else{
+        //     abort(403);
+        // }
 
+        
+        return view('post',['post' => Post::class]);
         
     }
 }

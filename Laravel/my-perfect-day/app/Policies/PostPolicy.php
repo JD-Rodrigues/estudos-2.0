@@ -22,7 +22,7 @@ class PostPolicy
     public function view(User $user): bool
     {
         // dd('Passou aqui!');
-        return $user->id === 2;
+        return $user->id === 1;
     }
 
     /**
