@@ -52,7 +52,7 @@ class PostController extends Controller
         // }
 
         
-        // return view('post',['post' => Post::class]);
+        return view('post',['post' => Post::class]);
         
         // if(Gate::allows('view', $post)){
         //     return view('post',['post' => Post::class]);

@@ -25,3 +25,7 @@ Route::post('/login', [AuthController::class, 'authenticate']);
 Route::get('/post', [PostController::class, 'view']);
 // ->middleware("can:view,App\Models\Post")
 // ->can('view', App\Models\Post::class);
+
+Route::fallback(function(){
+    return view('not-found');
+});

@@ -1,0 +1,9 @@
+body {
+    display: flex;
+    justify-content: center;
+}
+
+.not-found-image {
+    width: 500px;
+    margin: auto;
+}
