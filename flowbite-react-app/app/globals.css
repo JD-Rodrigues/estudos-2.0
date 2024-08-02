@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.dark {
+    /* --bg-color: theme('colors.theme-dark-bg');
+    --text-color: theme('colors.theme-dark-text'); */
+    color: 5f4a37;
+    background-color: #e6dec7;
+}
+
+/* body {
+    @apply bg-[var(--bg-color)] text-[var(--text-color)];
+    background-color: var(--bg-color);
+    color: var(--text-color);
+} */
+
+input[type="text"], textarea {
+
+    background-color : #85664c; 
+  
+  }
